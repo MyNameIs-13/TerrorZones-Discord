@@ -1,0 +1,501 @@
+2022-10-14 17:35:05 DEBUG    171165 load_arguments       ENTER Function
+2022-10-14 17:35:05 INFO     171165 load_arguments       =============================================
+2022-10-14 17:35:05 INFO     171165 load_arguments       SCRIPT INITIALIZE
+2022-10-14 17:35:05 INFO     171165 load_arguments       =============================================
+2022-10-14 17:35:05 DEBUG    171165 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-14 17:35:05 DEBUG    171165 load_arguments       EXIT Function
+2022-10-14 17:35:05 INFO     171165 main                 
+2022-10-14 17:35:05 INFO     171165 main                 =============================================
+2022-10-14 17:35:05 INFO     171165 main                 MAIN SCRIPT START
+2022-10-14 17:35:05 INFO     171165 main                 =============================================
+2022-10-14 17:35:05 INFO     171165 main                 
+2022-10-14 17:35:05 DEBUG    171165 write_pid            ENTER Function
+2022-10-14 17:35:05 INFO     171165 write_pid            running-pid created
+2022-10-14 17:35:05 DEBUG    171165 write_pid            EXIT Function
+2022-10-14 17:35:05 DEBUG    171165 load_config          ENTER Function
+2022-10-14 17:35:05 DEBUG    171165 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-14 17:35:05 DEBUG    171165 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-14 17:35:05 DEBUG    171165 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-14 17:35:05 DEBUG    171165 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-14 17:35:05 DEBUG    171165 load_config          ENDPOINT_TOKEN=
+2022-10-14 17:35:05 DEBUG    171165 load_config          EXIT Function
+2022-10-14 17:35:05 INFO     171165 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-14 18:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-14 17:35:06)]
+2022-10-14 17:36:16 ERROR    171165 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/63f978b59a12955a15089fb8e9a7c5ebba749126a1e4273e1f3e54576ae296db/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 377, in main
+    time.sleep(5)
+KeyboardInterrupt
+2022-10-15 12:45:55 DEBUG    20536 load_arguments       ENTER Function
+2022-10-15 12:45:55 INFO     20536 load_arguments       =============================================
+2022-10-15 12:45:55 INFO     20536 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:45:55 INFO     20536 load_arguments       =============================================
+2022-10-15 12:45:55 DEBUG    20536 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:45:55 DEBUG    20536 load_arguments       EXIT Function
+2022-10-15 12:45:55 INFO     20536 main                 
+2022-10-15 12:45:55 INFO     20536 main                 =============================================
+2022-10-15 12:45:55 INFO     20536 main                 MAIN SCRIPT START
+2022-10-15 12:45:55 INFO     20536 main                 =============================================
+2022-10-15 12:45:55 INFO     20536 main                 
+2022-10-15 12:45:55 DEBUG    20536 check_lock           ENTER Function
+2022-10-15 12:45:55 INFO     20536 check_lock           lock created
+2022-10-15 12:45:55 DEBUG    20536 check_lock           EXIT Function
+2022-10-15 12:45:55 DEBUG    20536 load_config          ENTER Function
+2022-10-15 12:45:55 DEBUG    20536 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 12:45:55 DEBUG    20536 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 12:45:55 DEBUG    20536 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 12:45:55 DEBUG    20536 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 12:45:55 DEBUG    20536 load_config          ENDPOINT_TOKEN=
+2022-10-15 12:45:55 DEBUG    20536 load_config          EXIT Function
+2022-10-15 12:45:55 INFO     20536 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 13:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 12:45:56)]
+2022-10-15 12:46:33 DEBUG    20886 load_arguments       ENTER Function
+2022-10-15 12:46:33 INFO     20886 load_arguments       =============================================
+2022-10-15 12:46:33 INFO     20886 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:46:33 INFO     20886 load_arguments       =============================================
+2022-10-15 12:46:33 DEBUG    20886 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:46:33 DEBUG    20886 load_arguments       EXIT Function
+2022-10-15 12:46:33 INFO     20886 main                 
+2022-10-15 12:46:33 INFO     20886 main                 =============================================
+2022-10-15 12:46:33 INFO     20886 main                 MAIN SCRIPT START
+2022-10-15 12:46:33 INFO     20886 main                 =============================================
+2022-10-15 12:46:33 INFO     20886 main                 
+2022-10-15 12:46:33 DEBUG    20886 check_lock           ENTER Function
+2022-10-15 12:46:33 DEBUG    20886 check_lock           EXIT Function a
+2022-10-15 12:46:33 ERROR    20886 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/600d84468ec139f81fe8df4e02fa70a2a471f66a4fa653aa7134b13ec408a334/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 370, in main
+    locked = not check_lock()
+  File "/home/skodo/.pex/installed_wheels/600d84468ec139f81fe8df4e02fa70a2a471f66a4fa653aa7134b13ec408a334/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 146, in check_lock
+    raise FileExistsError('lock exists. Please stop the previous execution first')
+FileExistsError: lock exists. Please stop the previous execution first
+2022-10-15 12:51:45 DEBUG    23293 load_arguments       ENTER Function
+2022-10-15 12:51:45 INFO     23293 load_arguments       =============================================
+2022-10-15 12:51:45 INFO     23293 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:51:45 INFO     23293 load_arguments       =============================================
+2022-10-15 12:51:45 DEBUG    23293 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:51:45 DEBUG    23293 load_arguments       EXIT Function
+2022-10-15 12:51:45 INFO     23293 main                 
+2022-10-15 12:51:45 INFO     23293 main                 =============================================
+2022-10-15 12:51:45 INFO     23293 main                 MAIN SCRIPT START
+2022-10-15 12:51:45 INFO     23293 main                 =============================================
+2022-10-15 12:51:45 INFO     23293 main                 
+2022-10-15 12:51:45 DEBUG    23293 check_lock           ENTER Function
+2022-10-15 12:51:45 INFO     23293 check_lock           lock created
+2022-10-15 12:51:45 DEBUG    23293 check_lock           EXIT Function
+2022-10-15 12:51:45 DEBUG    23293 load_config          ENTER Function
+2022-10-15 12:51:45 DEBUG    23293 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 12:51:45 DEBUG    23293 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 12:51:45 DEBUG    23293 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 12:51:45 DEBUG    23293 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 12:51:45 DEBUG    23293 load_config          ENDPOINT_TOKEN=
+2022-10-15 12:51:45 DEBUG    23293 load_config          EXIT Function
+2022-10-15 12:51:45 INFO     23293 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 13:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 12:51:46)]
+2022-10-15 12:55:43 DEBUG    25548 load_arguments       ENTER Function
+2022-10-15 12:55:43 INFO     25548 load_arguments       =============================================
+2022-10-15 12:55:43 INFO     25548 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:55:43 INFO     25548 load_arguments       =============================================
+2022-10-15 12:55:43 DEBUG    25548 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:55:43 DEBUG    25548 load_arguments       EXIT Function
+2022-10-15 12:55:43 INFO     25548 main                 
+2022-10-15 12:55:43 INFO     25548 main                 =============================================
+2022-10-15 12:55:43 INFO     25548 main                 MAIN SCRIPT START
+2022-10-15 12:55:43 INFO     25548 main                 =============================================
+2022-10-15 12:55:43 INFO     25548 main                 
+2022-10-15 12:55:43 DEBUG    25548 check_lock           ENTER Function
+2022-10-15 12:55:43 DEBUG    25548 check_lock           EXIT Function a
+2022-10-15 12:55:43 ERROR    25548 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/600d84468ec139f81fe8df4e02fa70a2a471f66a4fa653aa7134b13ec408a334/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 370, in main
+    locked = not check_lock()
+  File "/home/skodo/.pex/installed_wheels/600d84468ec139f81fe8df4e02fa70a2a471f66a4fa653aa7134b13ec408a334/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 146, in check_lock
+    raise FileExistsError('lock exists. Please stop the previous execution first')
+FileExistsError: lock exists. Please stop the previous execution first
+2022-10-15 12:56:37 DEBUG    26067 load_arguments       ENTER Function
+2022-10-15 12:56:37 INFO     26067 load_arguments       =============================================
+2022-10-15 12:56:37 INFO     26067 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:56:37 INFO     26067 load_arguments       =============================================
+2022-10-15 12:56:37 DEBUG    26067 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:56:37 DEBUG    26067 load_arguments       EXIT Function
+2022-10-15 12:56:37 INFO     26067 main                 
+2022-10-15 12:56:37 INFO     26067 main                 =============================================
+2022-10-15 12:56:37 INFO     26067 main                 MAIN SCRIPT START
+2022-10-15 12:56:37 INFO     26067 main                 =============================================
+2022-10-15 12:56:37 INFO     26067 main                 
+2022-10-15 12:56:37 DEBUG    26067 check_lock           ENTER Function
+2022-10-15 12:56:37 INFO     26067 check_lock           lock created
+2022-10-15 12:56:37 DEBUG    26067 check_lock           EXIT Function
+2022-10-15 12:56:37 DEBUG    26067 load_config          ENTER Function
+2022-10-15 12:56:37 DEBUG    26067 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 12:56:37 DEBUG    26067 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 12:56:37 DEBUG    26067 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 12:56:37 DEBUG    26067 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 12:56:37 DEBUG    26067 load_config          ENDPOINT_TOKEN=
+2022-10-15 12:56:37 DEBUG    26067 load_config          EXIT Function
+2022-10-15 12:56:37 INFO     26067 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 13:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 12:56:38)]
+2022-10-15 12:57:03 DEBUG    26246 load_arguments       ENTER Function
+2022-10-15 12:57:03 INFO     26246 load_arguments       =============================================
+2022-10-15 12:57:03 INFO     26246 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:57:03 INFO     26246 load_arguments       =============================================
+2022-10-15 12:57:03 DEBUG    26246 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:57:03 DEBUG    26246 load_arguments       EXIT Function
+2022-10-15 12:57:03 INFO     26246 main                 
+2022-10-15 12:57:03 INFO     26246 main                 =============================================
+2022-10-15 12:57:03 INFO     26246 main                 MAIN SCRIPT START
+2022-10-15 12:57:03 INFO     26246 main                 =============================================
+2022-10-15 12:57:03 INFO     26246 main                 
+2022-10-15 12:57:03 DEBUG    26246 check_lock           ENTER Function
+2022-10-15 12:57:03 DEBUG    26246 check_lock           EXIT Function a
+2022-10-15 12:57:03 INFO     26246 main                 lock file removed
+2022-10-15 12:57:03 ERROR    26246 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/07fdd004260e65d5436d7fc36cccc843496ed6a938a7b6246148e137088fef2b/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 370, in main
+    locked = not check_lock()
+  File "/home/skodo/.pex/installed_wheels/07fdd004260e65d5436d7fc36cccc843496ed6a938a7b6246148e137088fef2b/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 146, in check_lock
+    raise FileExistsError('lock exists. Please stop the previous execution first')
+FileExistsError: lock exists. Please stop the previous execution first
+2022-10-15 12:58:11 DEBUG    26905 load_arguments       ENTER Function
+2022-10-15 12:58:11 INFO     26905 load_arguments       =============================================
+2022-10-15 12:58:11 INFO     26905 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:58:11 INFO     26905 load_arguments       =============================================
+2022-10-15 12:58:11 DEBUG    26905 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:58:11 DEBUG    26905 load_arguments       EXIT Function
+2022-10-15 12:58:11 INFO     26905 main                 
+2022-10-15 12:58:11 INFO     26905 main                 =============================================
+2022-10-15 12:58:11 INFO     26905 main                 MAIN SCRIPT START
+2022-10-15 12:58:11 INFO     26905 main                 =============================================
+2022-10-15 12:58:11 INFO     26905 main                 
+2022-10-15 12:58:11 DEBUG    26905 check_lock           ENTER Function
+2022-10-15 12:58:11 INFO     26905 check_lock           lock created
+2022-10-15 12:58:11 DEBUG    26905 check_lock           EXIT Function
+2022-10-15 12:58:11 DEBUG    26905 load_config          ENTER Function
+2022-10-15 12:58:11 DEBUG    26905 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 12:58:11 DEBUG    26905 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 12:58:11 DEBUG    26905 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 12:58:11 DEBUG    26905 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 12:58:11 DEBUG    26905 load_config          ENDPOINT_TOKEN=
+2022-10-15 12:58:11 DEBUG    26905 load_config          EXIT Function
+2022-10-15 12:58:11 INFO     26905 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 13:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 12:58:12)]
+2022-10-15 12:58:19 INFO     26905 main                 lock file removed
+2022-10-15 12:58:19 ERROR    26905 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/b1eb8083e7040818509ce3b3541b7d1f21e6b89dd9b1c85b2b0edcbdabeb103b/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 384, in main
+    time.sleep(5)
+KeyboardInterrupt
+2022-10-15 12:58:40 DEBUG    27169 load_arguments       ENTER Function
+2022-10-15 12:58:40 INFO     27169 load_arguments       =============================================
+2022-10-15 12:58:40 INFO     27169 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:58:40 INFO     27169 load_arguments       =============================================
+2022-10-15 12:58:40 DEBUG    27169 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:58:40 DEBUG    27169 load_arguments       EXIT Function
+2022-10-15 12:58:40 INFO     27169 main                 
+2022-10-15 12:58:40 INFO     27169 main                 =============================================
+2022-10-15 12:58:40 INFO     27169 main                 MAIN SCRIPT START
+2022-10-15 12:58:40 INFO     27169 main                 =============================================
+2022-10-15 12:58:40 INFO     27169 main                 
+2022-10-15 12:58:40 DEBUG    27169 check_lock           ENTER Function
+2022-10-15 12:58:40 INFO     27169 check_lock           lock created
+2022-10-15 12:58:40 DEBUG    27169 check_lock           EXIT Function
+2022-10-15 12:58:40 DEBUG    27169 load_config          ENTER Function
+2022-10-15 12:58:40 DEBUG    27169 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 12:58:40 DEBUG    27169 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 12:58:40 DEBUG    27169 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 12:58:40 DEBUG    27169 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 12:58:40 DEBUG    27169 load_config          ENDPOINT_TOKEN=
+2022-10-15 12:58:40 DEBUG    27169 load_config          EXIT Function
+2022-10-15 12:58:40 INFO     27169 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 13:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 12:58:41)]
+2022-10-15 12:58:53 DEBUG    27302 load_arguments       ENTER Function
+2022-10-15 12:58:53 INFO     27302 load_arguments       =============================================
+2022-10-15 12:58:53 INFO     27302 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:58:53 INFO     27302 load_arguments       =============================================
+2022-10-15 12:58:53 DEBUG    27302 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:58:53 DEBUG    27302 load_arguments       EXIT Function
+2022-10-15 12:58:53 INFO     27302 main                 
+2022-10-15 12:58:53 INFO     27302 main                 =============================================
+2022-10-15 12:58:53 INFO     27302 main                 MAIN SCRIPT START
+2022-10-15 12:58:53 INFO     27302 main                 =============================================
+2022-10-15 12:58:53 INFO     27302 main                 
+2022-10-15 12:58:53 DEBUG    27302 check_lock           ENTER Function
+2022-10-15 12:58:53 DEBUG    27302 check_lock           EXIT Function a
+2022-10-15 12:58:53 INFO     27302 main                 lock file removed
+2022-10-15 12:58:53 ERROR    27302 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/b1eb8083e7040818509ce3b3541b7d1f21e6b89dd9b1c85b2b0edcbdabeb103b/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 370, in main
+    locked = check_lock()
+  File "/home/skodo/.pex/installed_wheels/b1eb8083e7040818509ce3b3541b7d1f21e6b89dd9b1c85b2b0edcbdabeb103b/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 146, in check_lock
+    raise FileExistsError('lock exists. Please stop the previous execution first')
+FileExistsError: lock exists. Please stop the previous execution first
+2022-10-15 12:59:41 DEBUG    27713 load_arguments       ENTER Function
+2022-10-15 12:59:41 INFO     27713 load_arguments       =============================================
+2022-10-15 12:59:41 INFO     27713 load_arguments       SCRIPT INITIALIZE
+2022-10-15 12:59:41 INFO     27713 load_arguments       =============================================
+2022-10-15 12:59:41 DEBUG    27713 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 12:59:41 DEBUG    27713 load_arguments       EXIT Function
+2022-10-15 12:59:41 INFO     27713 main                 
+2022-10-15 12:59:41 INFO     27713 main                 =============================================
+2022-10-15 12:59:41 INFO     27713 main                 MAIN SCRIPT START
+2022-10-15 12:59:41 INFO     27713 main                 =============================================
+2022-10-15 12:59:41 INFO     27713 main                 
+2022-10-15 12:59:41 DEBUG    27713 check_lock           ENTER Function
+2022-10-15 12:59:41 INFO     27713 check_lock           lock created
+2022-10-15 12:59:41 DEBUG    27713 check_lock           EXIT Function
+2022-10-15 12:59:41 DEBUG    27713 load_config          ENTER Function
+2022-10-15 12:59:41 DEBUG    27713 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 12:59:41 DEBUG    27713 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 12:59:41 DEBUG    27713 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 12:59:41 DEBUG    27713 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 12:59:41 DEBUG    27713 load_config          ENDPOINT_TOKEN=
+2022-10-15 12:59:41 DEBUG    27713 load_config          EXIT Function
+2022-10-15 12:59:41 INFO     27713 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 13:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 12:59:42)]
+2022-10-15 13:05:04 DEBUG    30578 load_arguments       ENTER Function
+2022-10-15 13:05:04 INFO     30578 load_arguments       =============================================
+2022-10-15 13:05:04 INFO     30578 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:05:04 INFO     30578 load_arguments       =============================================
+2022-10-15 13:05:04 DEBUG    30578 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:05:04 DEBUG    30578 load_arguments       EXIT Function
+2022-10-15 13:05:04 INFO     30578 main                 
+2022-10-15 13:05:04 INFO     30578 main                 =============================================
+2022-10-15 13:05:04 INFO     30578 main                 MAIN SCRIPT START
+2022-10-15 13:05:04 INFO     30578 main                 =============================================
+2022-10-15 13:05:04 INFO     30578 main                 
+2022-10-15 13:05:04 DEBUG    30578 check_lock           ENTER Function
+2022-10-15 13:05:04 INFO     30578 check_lock           lock created
+2022-10-15 13:05:04 DEBUG    30578 check_lock           EXIT Function
+2022-10-15 13:05:04 DEBUG    30578 load_config          ENTER Function
+2022-10-15 13:05:04 DEBUG    30578 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 13:05:04 DEBUG    30578 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 13:05:04 DEBUG    30578 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 13:05:04 DEBUG    30578 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 13:05:04 DEBUG    30578 load_config          ENDPOINT_TOKEN=
+2022-10-15 13:05:04 DEBUG    30578 load_config          EXIT Function
+2022-10-15 13:05:04 INFO     30578 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 14:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 13:05:05)]
+2022-10-15 13:05:23 DEBUG    30734 load_arguments       ENTER Function
+2022-10-15 13:05:23 INFO     30734 load_arguments       =============================================
+2022-10-15 13:05:23 INFO     30734 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:05:23 INFO     30734 load_arguments       =============================================
+2022-10-15 13:05:23 DEBUG    30734 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:05:23 DEBUG    30734 load_arguments       EXIT Function
+2022-10-15 13:05:23 INFO     30734 main                 
+2022-10-15 13:05:23 INFO     30734 main                 =============================================
+2022-10-15 13:05:23 INFO     30734 main                 MAIN SCRIPT START
+2022-10-15 13:05:23 INFO     30734 main                 =============================================
+2022-10-15 13:05:23 INFO     30734 main                 
+2022-10-15 13:05:23 DEBUG    30734 check_lock           ENTER Function
+2022-10-15 13:05:23 DEBUG    30734 check_lock           EXIT Function a
+2022-10-15 13:05:23 INFO     30734 main                 lock file removed
+2022-10-15 13:05:23 ERROR    30734 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/b1eb8083e7040818509ce3b3541b7d1f21e6b89dd9b1c85b2b0edcbdabeb103b/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 370, in main
+    locked = check_lock()
+  File "/home/skodo/.pex/installed_wheels/b1eb8083e7040818509ce3b3541b7d1f21e6b89dd9b1c85b2b0edcbdabeb103b/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 146, in check_lock
+    raise FileExistsError('lock exists. Please stop the previous execution first')
+FileExistsError: lock exists. Please stop the previous execution first
+2022-10-15 13:08:00 DEBUG    31980 load_arguments       ENTER Function
+2022-10-15 13:08:00 INFO     31980 load_arguments       =============================================
+2022-10-15 13:08:00 INFO     31980 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:08:00 INFO     31980 load_arguments       =============================================
+2022-10-15 13:08:00 DEBUG    31980 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:08:00 DEBUG    31980 load_arguments       EXIT Function
+2022-10-15 13:08:00 INFO     31980 main                 
+2022-10-15 13:08:00 INFO     31980 main                 =============================================
+2022-10-15 13:08:00 INFO     31980 main                 MAIN SCRIPT START
+2022-10-15 13:08:00 INFO     31980 main                 =============================================
+2022-10-15 13:08:00 INFO     31980 main                 
+2022-10-15 13:08:00 DEBUG    31980 check_lock           ENTER Function
+2022-10-15 13:08:00 INFO     31980 check_lock           lock created
+2022-10-15 13:08:00 DEBUG    31980 check_lock           EXIT Function
+2022-10-15 13:08:00 ERROR    31980 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/a00d44e729c3040b41b4b0f584940198003fd5baa13e39e6afe13828c532c021/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 371, in main
+    print('own_lock=' + own_lock)
+TypeError: can only concatenate str (not "NoneType") to str
+2022-10-15 13:08:51 DEBUG    32396 load_arguments       ENTER Function
+2022-10-15 13:08:51 INFO     32396 load_arguments       =============================================
+2022-10-15 13:08:51 INFO     32396 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:08:51 INFO     32396 load_arguments       =============================================
+2022-10-15 13:08:51 DEBUG    32396 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:08:51 DEBUG    32396 load_arguments       EXIT Function
+2022-10-15 13:08:51 INFO     32396 main                 
+2022-10-15 13:08:51 INFO     32396 main                 =============================================
+2022-10-15 13:08:51 INFO     32396 main                 MAIN SCRIPT START
+2022-10-15 13:08:51 INFO     32396 main                 =============================================
+2022-10-15 13:08:51 INFO     32396 main                 
+2022-10-15 13:08:51 DEBUG    32396 check_lock           ENTER Function
+2022-10-15 13:08:51 INFO     32396 check_lock           lock created
+2022-10-15 13:08:51 DEBUG    32396 check_lock           EXIT Function
+2022-10-15 13:08:51 ERROR    32396 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/a00d44e729c3040b41b4b0f584940198003fd5baa13e39e6afe13828c532c021/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 371, in main
+    print('own_lock=' + own_lock)
+TypeError: can only concatenate str (not "NoneType") to str
+2022-10-15 13:09:06 DEBUG    32605 load_arguments       ENTER Function
+2022-10-15 13:09:06 INFO     32605 load_arguments       =============================================
+2022-10-15 13:09:06 INFO     32605 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:09:06 INFO     32605 load_arguments       =============================================
+2022-10-15 13:09:06 DEBUG    32605 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:09:06 DEBUG    32605 load_arguments       EXIT Function
+2022-10-15 13:09:06 INFO     32605 main                 
+2022-10-15 13:09:06 INFO     32605 main                 =============================================
+2022-10-15 13:09:06 INFO     32605 main                 MAIN SCRIPT START
+2022-10-15 13:09:06 INFO     32605 main                 =============================================
+2022-10-15 13:09:06 INFO     32605 main                 
+2022-10-15 13:09:06 DEBUG    32605 check_lock           ENTER Function
+2022-10-15 13:09:06 INFO     32605 check_lock           lock created
+2022-10-15 13:09:06 DEBUG    32605 check_lock           EXIT Function
+2022-10-15 13:09:06 DEBUG    32605 load_config          ENTER Function
+2022-10-15 13:09:06 DEBUG    32605 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 13:09:06 DEBUG    32605 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 13:09:06 DEBUG    32605 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 13:09:06 DEBUG    32605 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 13:09:06 DEBUG    32605 load_config          ENDPOINT_TOKEN=
+2022-10-15 13:09:06 DEBUG    32605 load_config          EXIT Function
+2022-10-15 13:09:06 INFO     32605 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 14:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 13:09:07)]
+2022-10-15 13:10:50 ERROR    32605 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/075dfc13a8a855bf1ad7ace9fb9fbf90f316318c470099ffebeb3b731438123a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 385, in main
+    time.sleep(5)
+KeyboardInterrupt
+2022-10-15 13:15:01 DEBUG    35519 load_arguments       ENTER Function
+2022-10-15 13:15:01 INFO     35519 load_arguments       =============================================
+2022-10-15 13:15:01 INFO     35519 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:15:01 INFO     35519 load_arguments       =============================================
+2022-10-15 13:15:01 DEBUG    35519 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:15:01 DEBUG    35519 load_arguments       EXIT Function
+2022-10-15 13:15:01 INFO     35519 main                 
+2022-10-15 13:15:01 INFO     35519 main                 =============================================
+2022-10-15 13:15:01 INFO     35519 main                 MAIN SCRIPT START
+2022-10-15 13:15:01 INFO     35519 main                 =============================================
+2022-10-15 13:15:01 INFO     35519 main                 
+2022-10-15 13:15:01 DEBUG    35519 check_lock           ENTER Function
+2022-10-15 13:15:01 INFO     35519 check_lock           lock created
+2022-10-15 13:15:01 DEBUG    35519 check_lock           EXIT Function
+2022-10-15 13:15:01 DEBUG    35519 load_config          ENTER Function
+2022-10-15 13:15:01 DEBUG    35519 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 13:15:01 DEBUG    35519 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 13:15:01 DEBUG    35519 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 13:15:01 DEBUG    35519 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 13:15:01 DEBUG    35519 load_config          ENDPOINT_TOKEN=
+2022-10-15 13:15:01 DEBUG    35519 load_config          EXIT Function
+2022-10-15 13:15:01 INFO     35519 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 14:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 13:15:02)]
+2022-10-15 13:16:01 DEBUG    35992 load_arguments       ENTER Function
+2022-10-15 13:16:01 INFO     35992 load_arguments       =============================================
+2022-10-15 13:16:01 INFO     35992 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:16:01 INFO     35992 load_arguments       =============================================
+2022-10-15 13:16:01 DEBUG    35992 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:16:01 DEBUG    35992 load_arguments       EXIT Function
+2022-10-15 13:16:01 INFO     35992 main                 
+2022-10-15 13:16:01 INFO     35992 main                 =============================================
+2022-10-15 13:16:01 INFO     35992 main                 MAIN SCRIPT START
+2022-10-15 13:16:01 INFO     35992 main                 =============================================
+2022-10-15 13:16:01 INFO     35992 main                 
+2022-10-15 13:16:01 DEBUG    35992 check_lock           ENTER Function
+2022-10-15 13:16:01 DEBUG    35992 check_lock           EXIT Function a
+2022-10-15 13:16:01 ERROR    35992 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/499e32d1c89147b789ba9caa4a5829534e0258534ba7ec0f6f28012f7467c24a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 374, in main
+    own_lock = check_lock()
+  File "/home/skodo/.pex/installed_wheels/499e32d1c89147b789ba9caa4a5829534e0258534ba7ec0f6f28012f7467c24a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 148, in check_lock
+    raise FileExistsError('lock exists. Please stop the previous execution first')
+FileExistsError: lock exists. Please stop the previous execution first
+2022-10-15 13:17:01 INFO     35519 main                 lock file removed
+2022-10-15 13:17:01 ERROR    35519 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/499e32d1c89147b789ba9caa4a5829534e0258534ba7ec0f6f28012f7467c24a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 389, in main
+    time.sleep(5)
+KeyboardInterrupt
+2022-10-15 13:20:31 DEBUG    38363 load_arguments       ENTER Function
+2022-10-15 13:20:31 INFO     38363 load_arguments       =============================================
+2022-10-15 13:20:31 INFO     38363 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:20:31 INFO     38363 load_arguments       =============================================
+2022-10-15 13:20:31 DEBUG    38363 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:20:31 DEBUG    38363 load_arguments       EXIT Function
+2022-10-15 13:20:31 INFO     38363 main                 
+2022-10-15 13:20:31 INFO     38363 main                 =============================================
+2022-10-15 13:20:31 INFO     38363 main                 MAIN SCRIPT START
+2022-10-15 13:20:31 INFO     38363 main                 =============================================
+2022-10-15 13:20:31 INFO     38363 main                 
+2022-10-15 13:20:31 DEBUG    38363 check_lock           ENTER Function
+2022-10-15 13:20:31 INFO     38363 check_lock           lock created
+2022-10-15 13:20:31 DEBUG    38363 check_lock           EXIT Function
+2022-10-15 13:20:31 DEBUG    38363 load_config          ENTER Function
+2022-10-15 13:20:31 DEBUG    38363 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 13:20:31 DEBUG    38363 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 13:20:31 DEBUG    38363 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 13:20:31 DEBUG    38363 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 13:20:31 DEBUG    38363 load_config          ENDPOINT_TOKEN=
+2022-10-15 13:20:31 DEBUG    38363 load_config          EXIT Function
+2022-10-15 13:20:31 INFO     38363 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 14:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 13:20:32)]
+2022-10-15 13:20:39 INFO     38363 main                 lock file removed
+2022-10-15 13:20:39 ERROR    38363 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/499e32d1c89147b789ba9caa4a5829534e0258534ba7ec0f6f28012f7467c24a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 389, in main
+    time.sleep(5)
+KeyboardInterrupt
+2022-10-15 13:20:45 DEBUG    38490 load_arguments       ENTER Function
+2022-10-15 13:20:45 INFO     38490 load_arguments       =============================================
+2022-10-15 13:20:45 INFO     38490 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:20:45 INFO     38490 load_arguments       =============================================
+2022-10-15 13:20:45 DEBUG    38490 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:20:45 DEBUG    38490 load_arguments       EXIT Function
+2022-10-15 13:20:45 INFO     38490 main                 
+2022-10-15 13:20:45 INFO     38490 main                 =============================================
+2022-10-15 13:20:45 INFO     38490 main                 MAIN SCRIPT START
+2022-10-15 13:20:45 INFO     38490 main                 =============================================
+2022-10-15 13:20:45 INFO     38490 main                 
+2022-10-15 13:20:45 DEBUG    38490 check_lock           ENTER Function
+2022-10-15 13:20:45 INFO     38490 check_lock           lock created
+2022-10-15 13:20:45 DEBUG    38490 check_lock           EXIT Function
+2022-10-15 13:20:45 DEBUG    38490 load_config          ENTER Function
+2022-10-15 13:20:45 DEBUG    38490 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 13:20:45 DEBUG    38490 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 13:20:45 DEBUG    38490 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 13:20:45 DEBUG    38490 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 13:20:45 DEBUG    38490 load_config          ENDPOINT_TOKEN=
+2022-10-15 13:20:45 DEBUG    38490 load_config          EXIT Function
+2022-10-15 13:20:45 INFO     38490 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 14:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 13:20:46)]
+2022-10-15 13:21:29 INFO     38490 main                 lock file removed
+2022-10-15 13:21:29 ERROR    38490 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/499e32d1c89147b789ba9caa4a5829534e0258534ba7ec0f6f28012f7467c24a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 389, in main
+    time.sleep(5)
+KeyboardInterrupt
+2022-10-15 13:22:43 DEBUG    39709 load_arguments       ENTER Function
+2022-10-15 13:22:43 INFO     39709 load_arguments       =============================================
+2022-10-15 13:22:43 INFO     39709 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:22:43 INFO     39709 load_arguments       =============================================
+2022-10-15 13:22:43 DEBUG    39709 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:22:43 DEBUG    39709 load_arguments       EXIT Function
+2022-10-15 13:22:43 INFO     39709 main                 
+2022-10-15 13:22:43 INFO     39709 main                 =============================================
+2022-10-15 13:22:43 INFO     39709 main                 MAIN SCRIPT START
+2022-10-15 13:22:43 INFO     39709 main                 =============================================
+2022-10-15 13:22:43 INFO     39709 main                 
+2022-10-15 13:22:43 DEBUG    39709 check_lock           ENTER Function
+2022-10-15 13:22:43 INFO     39709 check_lock           lock created
+2022-10-15 13:22:43 DEBUG    39709 check_lock           EXIT Function
+2022-10-15 13:22:43 DEBUG    39709 load_config          ENTER Function
+2022-10-15 13:22:43 DEBUG    39709 load_config          env_path=/home/skodo/Documents/Programming/TerrorZones-Discord/data/.env
+2022-10-15 13:22:43 DEBUG    39709 load_config          WEBHOOK_ID=1030123198601244672
+2022-10-15 13:22:43 DEBUG    39709 load_config          WEBHOOK_TOKEN=AUWW6mdI2QeeMNRVXnE4PRoDM9JwOZORuEFxEFnkAJhJ68vkK-UJmVaV4JEK8t5-lZnM
+2022-10-15 13:22:43 DEBUG    39709 load_config          ENDPOINT_TZ=https://d2runewizard.com/api/terror-zone
+2022-10-15 13:22:43 DEBUG    39709 load_config          ENDPOINT_TOKEN=
+2022-10-15 13:22:43 DEBUG    39709 load_config          EXIT Function
+2022-10-15 13:22:43 INFO     39709 main                 [Every 1 hour at 00:00:31 do announce_terrorzone() (last run: [never], next run: 2022-10-15 14:00:31), Every 1 second do update_terrorzone() (last run: [never], next run: 2022-10-15 13:22:44)]
+2022-10-15 13:22:54 DEBUG    39813 load_arguments       ENTER Function
+2022-10-15 13:22:54 INFO     39813 load_arguments       =============================================
+2022-10-15 13:22:54 INFO     39813 load_arguments       SCRIPT INITIALIZE
+2022-10-15 13:22:54 INFO     39813 load_arguments       =============================================
+2022-10-15 13:22:54 DEBUG    39813 load_arguments       SCRIPT_HOME: /home/skodo/Documents/Programming/TerrorZones-Discord
+2022-10-15 13:22:54 DEBUG    39813 load_arguments       EXIT Function
+2022-10-15 13:22:54 INFO     39813 main                 
+2022-10-15 13:22:54 INFO     39813 main                 =============================================
+2022-10-15 13:22:54 INFO     39813 main                 MAIN SCRIPT START
+2022-10-15 13:22:54 INFO     39813 main                 =============================================
+2022-10-15 13:22:54 INFO     39813 main                 
+2022-10-15 13:22:54 DEBUG    39813 check_lock           ENTER Function
+2022-10-15 13:22:54 DEBUG    39813 check_lock           EXIT Function a
+2022-10-15 13:22:54 ERROR    39813 main                 END OF PROGRAM:
+Traceback (most recent call last):
+  File "/home/skodo/.pex/installed_wheels/499e32d1c89147b789ba9caa4a5829534e0258534ba7ec0f6f28012f7467c24a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 374, in main
+    own_lock = check_lock()
+  File "/home/skodo/.pex/installed_wheels/499e32d1c89147b789ba9caa4a5829534e0258534ba7ec0f6f28012f7467c24a/TerrorZones_Discord-0.0.1-py3-none-any.whl/.prefix/bin/main.py", line 148, in check_lock
+    raise FileExistsError('lock exists. Please stop the previous execution first')
+FileExistsError: lock exists. Please stop the previous execution first

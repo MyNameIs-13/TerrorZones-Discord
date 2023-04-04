@@ -1,0 +1,301 @@
+{
+
+    "terror zones": [
+        {
+        "display name": "Blood Moor and Den of Evil",
+        "act":"1",
+        "immunities": "f c",
+        "monster packs": "7-9",
+        "super uniques": "Corpsefire",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Cold Plains and The Cave",
+        "act":"1",
+        "immunities": "f c l",
+        "monster packs": "13-16",
+        "super uniques": "Bishibosh and Coldcrow",
+        "sparkly chests": "1"
+        },
+        {
+        "display name": "Burial Grounds, The Crypt, and The Mausoleum",
+        "act":"1",
+        "immunities": "l",
+        "monster packs": "8-10",
+        "super uniques": "Blood Raven and Bonebreaker",
+        "sparkly chests": "2"
+        },
+        {
+        "display name": "Stony Field",
+        "act":"1",
+        "immunities": "f c l p",
+        "monster packs": "7-9",
+        "super uniques": "Rakanishu",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Dark Wood and Underground Passage",
+        "act":"1",
+        "immunities": "f c l p",
+        "monster packs": "16-22",
+        "super uniques": "Treehead Woodfist",
+        "sparkly chests": "1"
+        },
+        {
+        "display name": "Black Marsh and The Hole",
+        "act":"1",
+        "immunities": "f c l p",
+        "monster packs": "15-20",
+        "super uniques": "",
+        "sparkly chests": "1"
+        },
+        {
+        "display name": "The Forgotten Tower",
+        "act":"1",
+        "immunities": "f l ph",
+        "monster packs": "15-20",
+        "super uniques": "The Countess",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Jail and Barracks",
+        "act":"1",
+        "immunities": "f c p ph",
+        "monster packs": "24-32",
+        "super uniques": "Pitspawn Fouldog and The Smith",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Cathedral and Catacombs",
+        "act":"1",
+        "immunities": "f c l ph",
+        "monster packs": "27-35",
+        "super uniques": "Bone Ash and Andariel",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "The Pit",
+        "act":"1",
+        "immunities": "f c",
+        "monster packs": "8-11",
+        "super uniques": "",
+        "sparkly chests": "1"
+        },
+        {
+        "display name": "Tristram",
+        "act":"1",
+        "immunities": "f l p",
+        "monster packs": "5-6",
+        "super uniques": "Griswold",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Moo Moo Farm",
+        "act":"1",
+        "immunities": "",
+        "monster packs": "6-8",
+        "super uniques": "The Cow King",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Sewers",
+        "act":"2",
+        "immunities": "f c p m",
+        "monster packs": "18-24",
+        "super uniques": "Radament",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Rocky Waste and Stony Tomb",
+        "act":"2",
+        "immunities": "f c l p m",
+        "monster packs": "17-23",
+        "super uniques": "Creeping Feature",
+        "sparkly chests": "1"
+        },
+        {
+        "display name": "Dry Hills and Halls of the Dead",
+        "act":"2",
+        "immunities": "f c l p",
+        "monster packs": "20-27",
+        "super uniques": "Bloodwitch the Wild",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Far Oasis",
+        "act":"2",
+        "immunities": "l p ph",
+        "monster packs": "7-9",
+        "super uniques": "Beetleburst",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Lost City, Valley of Snakes, and Claw Viper Temple",
+        "act":"2",
+        "immunities": "f c l p m",
+        "monster packs": "21-28",
+        "super uniques": "Dark Elder and Fangskin",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Ancient Tunnels",
+        "act":"2",
+        "immunities": "f l p m",
+        "monster packs": "6-8",
+        "super uniques": "",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Arcane Sanctuary",
+        "act":"2",
+        "immunities": "f c l p ph",
+        "monster packs": "7-9",
+        "super uniques": "The Summoner",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Tal Rasha's Tombs and Tal Rasha's Chamber",
+        "act":"2",
+        "immunities": "f c l p m",
+        "monster packs": "49-63",
+        "super uniques": "Ancient Kaa The Soulless and Duriel",
+        "sparkly chests": "6"
+        },
+        {
+        "display name": "Spider Forest and Spider Cavern",
+        "act":"3",
+        "immunities": "f c l p",
+        "monster packs": "14-20",
+        "super uniques": "Sszark The Burning",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Great Marsh",
+        "act":"3",
+        "immunities": "f c l",
+        "monster packs": "10-15",
+        "super uniques": "",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Flayer Jungle and Flayer Dungeon",
+        "act":"3",
+        "immunities": "f c l p ph m",
+        "monster packs": "22-29",
+        "super uniques": "Stormtree and Witch Doctor Endugu",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Kurast Bazaar, Ruined Temple, and Disused Fane",
+        "act":"3",
+        "immunities": "f c l p ph m",
+        "monster packs": "15-17",
+        "super uniques": "Battlemaid Sarina",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Kurast Sewers",
+        "act":"3",
+        "immunities": "c l p m",
+        "monster packs": "12-14",
+        "super uniques": "Icehawk Riftwing",
+        "sparkly chests": "1"
+        },
+        {
+        "display name": "Travincal",
+        "act":"3",
+        "immunities": "f c l p",
+        "monster packs": "6-8",
+        "super uniques": "Ismail Vilehand, Toorc Icefist and Geleb Flamefinger",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Durance of Hate",
+        "act":"3",
+        "immunities": "f c l p",
+        "monster packs": "15-21",
+        "super uniques": "Wyand Voidbringer, Maffer Dragonhand, Bremm Sparkfist and Mephisto",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Outer Steppes and Plains of Despair",
+        "act":"4",
+        "immunities": "f c l p",
+        "monster packs": "16-20",
+        "super uniques": "Izual",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "River of Flame and City of the Damned",
+        "act":"4",
+        "immunities": "f c l p",
+        "monster packs": "14-17",
+        "super uniques": "Hephasto The Armorer",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Chaos Sanctuary",
+        "act":"4",
+        "immunities": "f c l",
+        "monster packs": "6-7",
+        "super uniques": "Grand Vizier of Chaos, Infector of Souls, Lord De Seis and Diablo",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Bloody Foothills, Frigid Highlands and Abaddon",
+        "act":"5",
+        "immunities": "f c l p ph m",
+        "monster packs": "19-25",
+        "super uniques": "Dac Farren,  Shenk The Overseer, Eldritch the Rectifier, Sharptooth Slayer and Eyeback the Unleashed",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Glacial Trail and Drifter Cavern",
+        "act":"5",
+        "immunities": "f c l p ph",
+        "monster packs": "13-17",
+        "super uniques": "Bonesaw Breaker",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Crystalline Passage and Frozen River",
+        "act":"5",
+        "immunities": "f c l p ph m",
+        "monster packs": "13-17",
+        "super uniques": "Frozenstein",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Arreat Plateau and Pit of Acheron",
+        "act":"5",
+        "immunities": "f c l p",
+        "monster packs": "15-19",
+        "super uniques": "Thresh Socket",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Nihlathak's Temple, Halls of Anguish, Halls of Pain, and Halls of Vaught",
+        "act":"5",
+        "immunities": "f c l p ph m",
+        "monster packs": "12-14",
+        "super uniques": "Pindleskin and Nihlathak",
+        "sparkly chests": ""
+        },
+        {
+        "display name": "Ancient's Way and Icy Cellar",
+        "act":"5",
+        "immunities": "c l p ph",
+        "monster packs": "6-8",
+        "super uniques": "Snapchip Shatter",
+        "sparkly chests": "1"
+        },
+        {
+        "display name": "Worldstone Keep, Throne of Destruction, and Worldstone Chamber",
+        "act":"5",
+        "immunities": "f c l p ph m",
+        "monster packs": "22-29",
+        "super uniques": "Colenzo The Annihilator, Achmel The Cursed, Bartuc The Bloody, Ventar The Unholy, Lister The Tormentor and Baal",
+        "sparkly chests": ""
+        }
+    ]
+}
