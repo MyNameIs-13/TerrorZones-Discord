@@ -41,7 +41,7 @@ example:
 ```
 docker run \
  --name d2r-terrorzones \
- --restart=unless-stopped \
+ --restart=always \
  --env LOG_LEVEL='DEBUG' \
  --env-file='/home/docker-user/Documents/scm/TerrorZones-Discord/.env' \
  --mount type=bind,source="/home/docker-user/Documents/data/terrorzone",target="/logs" \
@@ -53,7 +53,7 @@ or
 ```
 docker run \
  --name d2r-terrorzones \
- --restart=unless-stopped \
+ --restart=always \
  --env-file='/home/docker-user/Documents/scm/TerrorZones-Discord/.env' \
  --user "nobody" \
  d2r-terrorzones:<tag>
