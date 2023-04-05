@@ -1,1 +1,9 @@
-.env
+**/.idea/*
+**/.vscode
+**/coverage
+**/.env
+**/.aws
+**/.ssh
+**/venv
+**/env
+**/.env-example

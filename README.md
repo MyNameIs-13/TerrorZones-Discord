@@ -44,8 +44,8 @@ docker run \
  --restart=always \
  --env LOG_LEVEL='DEBUG' \
  --env-file='/home/docker-user/Documents/scm/TerrorZones-Discord/.env' \
- --mount type=bind,source="/home/docker-user/Documents/data/terrorzone",target="/logs" \
- --mount type=bind,source="/home/docker-user/Documents/data/terrorzone",target="/zone-info" \
+ --mount type=bind,source="/home/docker-user/Documents/data/terrorzone",target="/app/logs" \
+ --mount type=bind,source="/home/docker-user/Documents/data/terrorzone",target="/app/zone-info" \
  --user "nobody" \
  d2r-terrorzones:<tag>
 ```
@@ -58,22 +58,22 @@ docker run \
  --user "nobody" \
  d2r-terrorzones:<tag>
 ```
-> without `/logs` mount, logs will be written to stdout
+> without `/app/logs` mount, logs will be written to stdout
 
-> without `/zone-info` mount (or when zone-info.json is missing), file included in image will be used
+> without `/app/zone-info` mount (or when zone-info.json is missing), file included in image will be used
 
 ## Misc
-- The following environemt variables can be passed to the docker container:
+- The following environment variables can be passed to the docker container:
     - LOG_LEVEL - optional - {INFO, WARNING, ERROR, CRITICAL} (everything else defaults to DEBUG)
     - WEBHOOK_ID - required - id from your discord webhook
     - WEBHOOK_TOKEN - required - token from your discord webhook
     - ENDPOINT_TZ - optional - defaults to https://d2runewizard.com/api/terror-zone
     - ENDPOINT_TOKEN - required - personalized token from https://d2runewizard.com/profile/T41jagcO0UcTLKJiC5UOmDCdGtS2
-    - CONTACT - required - email addresse
+    - CONTACT - required - email address
     - PLATFORM - required - other communication method information like Discord, Whatsapp, ...
     - PUBLIC_REPO - required - link to your public repo
-- when an accesible `\logs` mount is created, log files will be written into this folder. Otherwise they are written to stdout
-- when an accesible `\zone-info` mount is created, zone-info.json in this directory is preferred instead of the build in one.
+- when an accessible `/app/logs` mount is created, log files will be written into this folder. Otherwise they are written to stdout
+- when an accessible `/app/zone-info` mount is created, zone-info.json in this directory is preferred instead of the build in one.
 - docker start: `docker start d2r-terrorzones`
 - docker stop: `docker stop d2r-terrorzones`
 - docker remove (i.e. to run/initialize again)): `docker rm d2r-terrorzones`
