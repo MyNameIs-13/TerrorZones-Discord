@@ -8,7 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # configure system
 RUN addgroup -S app && adduser -S app -G app \
     ; mkdir /logs \
-    ; mkdir /zone-info
+    ; mkdir /zone-info \
+    ; rm requirements.txt
 USER app
 WORKDIR /home/app
 
