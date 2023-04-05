@@ -54,7 +54,7 @@ def setup_custom_logger(name='terrorzone-discord-webhook'):
     handler.setFormatter(formatter)    
     custom_logger.addHandler(handler)
     
-    loglevel = os.getenv("LOG_LEVEL")
+    loglevel = os.getenv("LOG_LEVEL", "DEBUG")
     if loglevel.upper() == 'INFO':
         custom_logger.setLevel(logging.INFO)
     elif loglevel.upper() == 'WARNING':
@@ -282,7 +282,7 @@ def get_new_terrorzone():
     headers = {'D2R-Contact': CONTACT, 'D2R-Platform': PLATFORM, 'D2R-Repo': PUBLIC_REPO}
     response = requests.get(ENDPOINT_TZ, params=params, headers=headers)
     if not response.ok:
-        #TODO: check if ok between not ok. If x not ok in a row, stop (and notify?)
+        #TODO: check if ok between not ok. If x not ok in a row, and notify? (healthcheck)
         update_ttl(10)  # set new update interval to 10 minutes
         raise ConnectionError(f"{response.status_code} - {response.json()['message']}")
 
