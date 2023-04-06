@@ -4,10 +4,8 @@ FROM python:3-alpine
 
 WORKDIR /app
 
-# add app files
 COPY app/ .
 
-# configure system
 RUN pip install --no-cache-dir -r /app/requirements.txt \
     ; rm /app/requirements.txt \
     ; mkdir /app/logs \
@@ -24,5 +22,4 @@ USER nobody
 HEALTHCHECK --interval=5m --timeout=3s \
     CMD ["sh", "-c", "/app/check-running.sh"]
 
-# final configuration
 ENTRYPOINT [ "python", "main.py" ]
