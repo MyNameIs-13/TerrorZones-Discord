@@ -1,15 +1,4 @@
-**/.git
-**/.gitignore
-**/.vscode
-**/coverage
-**/.env
-**/.aws
-**/.ssh
-dockerfile
-README.md
-docker-compose.yml
-**/.DS_Store
-**/venv
-**/env
-**/.env-example
-**/.idea/*
+# Ignore everything
+*
+# But not files in the /app directory...
+!app/

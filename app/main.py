@@ -16,7 +16,7 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import signal
 
 # global variables
-fail_count = 0
+fail_count = 0  # reduces reads from file
 announced_terrorzone = 'undefined'
 announced_terrorzone_name = ''
 logger = logging.getLogger('')
@@ -325,24 +325,18 @@ def health(state=False):
     logger.debug('ENTER Function')
     if state and fail_count == 0:
         logger.debug('EXIT Function 1')
-        return
-    elif state and fail_count > 0:
-        fail_count -= 1
-    elif not state and fail_count == 3:
+        return    
+    elif not state and fail_count == 1:
         logger.debug('EXIT Function 2')
         return
-    elif not state and fail_count < 3:
-        fail_count += 1
-    logger.debug(f"fail_count set to: {fail_count}")
-    code = 2
-    if fail_count == 0:
-        code = 0
-    elif fail_count == 3:
-        code = 1
-    if code == 0 or code == 1:
-        with open('health', "w") as f:
-            f.write(code)
-        logger.info(f"health set to: {code}")
+    elif state and fail_count == 1:
+        fail_count = 0
+    elif not state and fail_count == 0:
+        fail_count = 1
+ 
+    with open('health', "w") as f:
+        f.write(str(fail_count))
+    logger.info(f"health set to: {str(fail_count)}")
     logger.debug('EXIT Function')
 
 

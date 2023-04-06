@@ -21,7 +21,7 @@ Based on https://d2runewizard.com/integration
 - (optional) create folder(s) for `logs` and `zone-info.json`
     - the used folder(s) require access right for anybody when the `nobody` user is used to run the container 
         ```
-        chmod -R 777 /your/path
+        chmod -R 666 /your/path
         ```
 
 ### Build docker image
@@ -42,20 +42,30 @@ example:
 docker run \
  --name d2r-terrorzones \
  --restart=always \
- --env LOG_LEVEL='DEBUG' \
- --env-file='/home/docker-user/Documents/scm/TerrorZones-Discord/.env' \
- --mount type=bind,source="/home/docker-user/Documents/data/terrorzone",target="/app/logs" \
- --mount type=bind,source="/home/docker-user/Documents/data/terrorzone",target="/app/zone-info" \
+ --env-file='/path/to/.env' \
  --user "nobody" \
+ --cap-drop ALL \
+ --cpus=".2" \
+ --memory=100m \
+ --memory-reservation=64m \
  d2r-terrorzones:<tag>
 ```
+
 or
+
 ```
 docker run \
  --name d2r-terrorzones \
  --restart=always \
- --env-file='/home/docker-user/Documents/scm/TerrorZones-Discord/.env' \
+ --env LOG_LEVEL='DEBUG' \
+ --env-file='/path/to/.env' \
+ --mount type=bind,source="/host/log/path",target="/app/logs" \
+ --mount type=bind,source="/host/path/to/zone-info",target="/app/zone-info" \
  --user "nobody" \
+ --cap-drop ALL \
+ --cpus=".2" \
+ --memory=100m \
+ --memory-reservation=64m \ 
  d2r-terrorzones:<tag>
 ```
 > without `/app/logs` mount, logs will be written to stdout
