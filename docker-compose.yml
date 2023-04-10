@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  d2r-terrorzones:
+    build: .
+    image: d2r-terrorzones:${TAG}
+    environment:
+      - PUBLIC_REPO=https://github.com/MyNameIs-13/TerrorZones-Discord
+    env_file:
+      - .secrets
+    restart: always
+    cap_drop:
+      - ALL
+    volumes:
+      - "${LOGPATH}:/app/logs"
+      - "${ZONEINFOPATH}:/app/zone-info"
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+#          cpus: '0.2'
+          memory: 100M
+        reservations:
+          memory: 25M
