@@ -1,2 +1,2 @@
-schedule
-discord_webhook
+schedule>=1.2.0
+discord_webhook>=1.1.0

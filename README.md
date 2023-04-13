@@ -19,11 +19,12 @@ Based on https://d2runewizard.com/integration
         ```url
         https://discord.com/api/webhooks/{id}/{token}
         ```
-- (optional) create folder(s) for `logs` and `zone-info.json` and add them to the `.env` file
+- (optional) create folder(s) for `logs` and `zone-info.json` and add them to the `.env` file as `LOGPATH` & `ZONEINFOPATH` respectively
     - the used folder(s) require access right for anybody when the `nobody` user is used to run the container 
         ```
         chmod -R 666 /your/path
         ```
+- (optional) define UID (UserId) and GID (GroupId) for the user which should be used inside the container (default is nobody)
 
 ### Build & run docker container
 

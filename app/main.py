@@ -16,7 +16,7 @@ from discord_webhook import DiscordWebhook, DiscordEmbed
 import signal
 
 # global variables
-fail_count = 0  # reduces reads from file
+health_state = 0  # reduces reads from file
 announced_terrorzone = 'undefined'
 announced_terrorzone_name = ''
 logger = logging.getLogger('')
@@ -320,23 +320,23 @@ def update_ttl(reported_amount=0):
 
 def health(state=False):
     global logger
-    global fail_count
+    global health_state
 
     logger.debug('ENTER Function')
-    if state and fail_count == 0:
+    if state and health_state == 0:
         logger.debug('EXIT Function 1')
         return    
-    elif not state and fail_count == 1:
+    elif not state and health_state == 1:
         logger.debug('EXIT Function 2')
         return
-    elif state and fail_count == 1:
-        fail_count = 0
-    elif not state and fail_count == 0:
-        fail_count = 1
+    elif state and health_state == 1:
+        health_state = 0
+    elif not state and health_state == 0:
+        health_state = 1
  
-    with open('health', "w") as f:
-        f.write(str(fail_count))
-    logger.info(f"health set to: {str(fail_count)}")
+    with open('/tmp/health', "w") as f:
+        f.write(str(health_state))
+    logger.info(f"health set to: {str(health_state)}")
     logger.debug('EXIT Function')
 
 
@@ -353,6 +353,9 @@ def main():
     logger.info('')
 
     load_env()
+
+    with open('/tmp/health', "w") as f:
+        f.write(str(0))
 
     # execute every full hour (give 31 seconds time for people to report the new terrorzone)
     schedule.every().hour.at("00:31").do(announce_terrorzone)

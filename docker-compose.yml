@@ -1,4 +1,4 @@
-version: "3.9"
+version: "2.4"
 services:
   d2r-terrorzones:
     build: .
@@ -11,14 +11,11 @@ services:
     cap_drop:
       - ALL
     volumes:
-      - "${LOGPATH}:/app/logs"
-      - "${ZONEINFOPATH}:/app/zone-info"
-    deploy:
-      mode: replicated
-      replicas: 1
-      resources:
-        limits:
-#          cpus: '0.2'
-          memory: 100M
-        reservations:
-          memory: 25M
+      - "${LOGPATH:-/}:/app/logs"
+      - "${ZONEINFOPATH:-/}:/app/zone-info"
+    user: ${UID:-65534}:${GID:-65534}
+    pids_limit: 3  # program & for some reason healthcheck needs 2
+    scale: 1
+    cpus: 0.2
+    mem_limit: 100M
+    mem_reservation: 25M
