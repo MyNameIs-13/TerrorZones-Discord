@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r /app/requirements.txt \
   ; chmod 0444 /app/zone-info.json \
   ; chmod 0444 /app/main.py
 
+#  watchtower should not try to monitor and update
+LABEL com.centurylinklabs.watchtower.enable="false"
+
 HEALTHCHECK --interval=5m --timeout=3s \
     CMD ["sh", "-c", "/app/check-running.sh"]
 

@@ -28,6 +28,7 @@ Based on https://d2runewizard.com/integration
 
 ### Build & run docker container
 
+navigate to folder (`cd /your/path`), then:
 ```
 docker compose up
 ```
