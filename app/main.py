@@ -1,33 +1,27 @@
 #!/usr/bin/env python3
 
-# TODO: improve error handling
 # TODO: Maybe async?
-
 
 import os
 import sys
-import schedule
+import re
 import time
 import json
 import requests
-import logging
-from logging.handlers import RotatingFileHandler
-from discord_webhook import DiscordWebhook, DiscordEmbed
 import signal
+import logging
+
+from logging.handlers import RotatingFileHandler
+
+import schedule
+
+from discord_webhook import DiscordWebhook, DiscordEmbed
+from dotenv import load_dotenv
 
 # global variables
-health_state = 0  # reduces reads from file
-announced_terrorzone = 'undefined'
-announced_terrorzone_name = ''
-logger = logging.getLogger('')
-update_job = ''
-WEBHOOK_ID = ''
-WEBHOOK_TOKEN = ''
-ENDPOINT_TZ = ''
-ENDPOINT_TOKEN = ''
-CONTACT = ''
-PLATFORM = ''
-PUBLIC_REPO = ''
+health_state: int = 0  # reduces reads from file
+announced_terrorzone_name: str = ''
+update_job: schedule.Job
 
 
 class GracefulKiller:
@@ -41,77 +35,98 @@ class GracefulKiller:
         self.kill_now = True
 
 
-def setup_custom_logger(name='terrorzone-discord-webhook'):
+class SensitiveDataFilter(logging.Filter):
+    def filter(self, record):
+        # If the log message is a dictionary, mask sensitive fields
+        if hasattr(record, 'msg'):
+            if isinstance(record.msg, (list, str)):
+                # Use regex to find and replace the value of "password"
+                if 'TOKEN' in str(record.msg):
+                    record.msg = re.sub(r"(TOKEN'?:? ?=?'?)[^\s^']+", r"\1****", str(record.msg))
+        return True
+
+
+def setup_custom_logger(name='terrorzone-discord-webhook') -> logging.Logger:
+    """
+
+    :param name: name of the logger which will be created
+    :return: logger as logger
+    """
+
     formatter = logging.Formatter(fmt='%(asctime)s %(levelname)-8s %(funcName)-20s %(message)s',
                                   datefmt='%Y-%m-%d %H:%M:%S')
-
     logpath = './logs/terrorzone-discord-webhook.log'
-    print('logpath=' + logpath)
-    custom_logger = logging.getLogger(name)
+    print(f'logpath={logpath}')
+    logger = logging.getLogger(name)
+    logger.addFilter(SensitiveDataFilter())
     if not os.access('./logs', os.W_OK):
         handler = logging.StreamHandler(stream=sys.stdout)
     else:
         handler = RotatingFileHandler(logpath, mode='a', maxBytes=2000000, backupCount=3)
     handler.setFormatter(formatter)
-    custom_logger.addHandler(handler)
+    logger.addHandler(handler)
 
-    loglevel = os.getenv("LOG_LEVEL", "DEBUG")
+    loglevel = os.getenv('LOG_LEVEL', 'DEBUG')
     if loglevel.upper() == 'INFO':
-        custom_logger.setLevel(logging.INFO)
+        logger.setLevel(logging.INFO)
     elif loglevel.upper() == 'WARNING':
-        custom_logger.setLevel(logging.WARNING)
+        logger.setLevel(logging.WARNING)
     elif loglevel.upper() == 'ERROR':
-        custom_logger.setLevel(logging.ERROR)
+        logger.setLevel(logging.ERROR)
     elif loglevel.upper() == 'CRITICAL':
-        custom_logger.setLevel(logging.CRITICAL)
+        logger.setLevel(logging.CRITICAL)
     else:
-        custom_logger.setLevel(logging.DEBUG)
+        logger.setLevel(logging.DEBUG)
 
-    return custom_logger
-
-
-def load_env():
-    # load environment variables
-    global WEBHOOK_ID
-    global WEBHOOK_TOKEN
-    global ENDPOINT_TZ
-    global ENDPOINT_TOKEN
-    global CONTACT
-    global PLATFORM
-    global PUBLIC_REPO
-
-    logger.debug('ENTER Function')
-    WEBHOOK_ID = os.getenv("WEBHOOK_ID")
-    logger.debug('WEBHOOK_ID=' + WEBHOOK_ID)
-    WEBHOOK_TOKEN = os.getenv("WEBHOOK_TOKEN")
-    logger.debug('WEBHOOK_TOKEN=' + WEBHOOK_TOKEN)
-    ENDPOINT_TZ = os.getenv("ENDPOINT_TZ", "https://d2runewizard.com/api/terror-zone")
-    print(ENDPOINT_TZ)
-    logger.debug('ENDPOINT_TZ=' + ENDPOINT_TZ)
-    print(os.getenv("ENDPOINT_TOKEN"))
-    ENDPOINT_TOKEN = os.getenv("ENDPOINT_TOKEN")
-    logger.debug('ENDPOINT_TOKEN=' + ENDPOINT_TOKEN)
-    CONTACT = os.getenv("CONTACT")
-    logger.debug('CONTACT=' + CONTACT)
-    PLATFORM = os.getenv("PLATFORM")
-    logger.debug('PLATFORM=' + PLATFORM)
-    PUBLIC_REPO = os.getenv("PUBLIC_REPO")
-    logger.debug('PUBLIC_REPO=' + PUBLIC_REPO)
-    logger.debug('EXIT Function')
+    return logger
 
 
-# access the zone-info.json file to get additional area information for the current terrorzone
-# create message with this information
-def create_message():
-    global logger
-    global announced_terrorzone_name
+def load_env(env: dict, logger: logging.Logger):
+    """
+    load environment variables
 
-    logger.debug('ENTER Function')
+    :param env:
+    :param logger:
+    :return:
+    """
+
+    # for debugging purposes when running outside of container
+    if os.path.exists('../.secrets'):
+        load_dotenv('../.secrets')
+
+    logger.debug('ENTER')
+    env['WEBHOOK_ID'] = os.getenv('WEBHOOK_ID')
+    logger.debug(f'WEBHOOK_ID={env["WEBHOOK_ID"]}')
+    env['WEBHOOK_TOKEN'] = os.getenv("WEBHOOK_TOKEN")
+    logger.debug(f'WEBHOOK_TOKEN={env["WEBHOOK_TOKEN"]}')
+    env['ENDPOINT_TZ'] = os.getenv('ENDPOINT_TZ', 'https://d2runewizard.com/api/terror-zone')
+    logger.debug(f'ENDPOINT_TZ={env["ENDPOINT_TZ"]}')
+    env['ENDPOINT_TOKEN'] = os.getenv("ENDPOINT_TOKEN")
+    logger.debug(f'ENDPOINT_TOKEN={env["ENDPOINT_TOKEN"]}')
+    env['CONTACT'] = os.getenv("CONTACT")
+    logger.debug(f'CONTACT={env["CONTACT"]}')
+    env['PLATFORM'] = os.getenv("PLATFORM")
+    logger.debug(f'PLATFORM={env["PLATFORM"]}')
+    env['PUBLIC_REPO'] = os.getenv("PUBLIC_REPO")
+    logger.debug(f'PUBLIC_REPO={env["PUBLIC_REPO"]}')
+    logger.debug('EXIT')
+
+
+def create_message(terrorzone_name: str, logger: logging.Logger):
+    """
+    access the zone-info.json file to get additional area information for the current terrorzone
+    create message with this information
+
+    :param terrorzone_name: name of the terrorzone about to be announced
+    :param logger:
+    :return:
+    """
+
+    logger.debug('ENTER')
     act, immunities, monster_pack, super_uniques, sparkly_chests = ('', '', '', '', '')
     zone_found = False
     error_occurred = False
     message = ''
-    zone_name = announced_terrorzone_name
     zone_info = './zone-info/zone-info.json'
     if not os.path.exists(zone_info):
         zone_info = 'zone-info.json'
@@ -119,7 +134,7 @@ def create_message():
         with open(zone_info) as data_file:
             zone_info = json.load(data_file)
             for zones in zone_info['terror zones']:
-                if zones['display name'] == zone_name:
+                if zones['display name'] == terrorzone_name:
                     zone_found = True
                     act = zones['act']
                     immunities = zones['immunities']
@@ -138,241 +153,223 @@ def create_message():
         error_occurred = True
     finally:
         if not error_occurred:
-            message = '\
-```\
-Act:              ' + act + '\n\
-Immunities:       ' + immunities + '\n\
-Monster packs:    ' + monster_pack + '\n\
-Super uniques:    ' + super_uniques + '\n\
-Sparkly chests:   ' + sparkly_chests + '\n\
-```'
-            logger.debug('message created:\n' + message)
-        logger.debug('EXIT Function')
+            message = f"""
+```
+Act:              {act}
+Immunities:       {immunities}
+Monster packs:    {monster_pack}
+Super uniques:    {super_uniques}
+Sparkly chests:   {sparkly_chests}
+```"""
+            logger.debug(f'message created:\n{message}')
+        logger.debug('EXIT')
         return message
 
 
-# every hour a new terrorzone is announced
-# if an update is needed (wrong terrorzone announced) use a different color and footer
-def announce_terrorzone(update=False, color='8B0000'):
-    global logger
-    global announced_terrorzone
-    global announced_terrorzone_name
-    global WEBHOOK_ID
-    global WEBHOOK_TOKEN
+def announce_terrorzone(env: dict, logger: logging.Logger, provided_by: str, announce_terrorzone_name: str, ttl_multiplier: int,  color: str='8B0000'):
+    """
+    announce_terrorzone
 
-    logger.debug('ENTER Function')
-
-    try:
-        if not update:
-            announced_terrorzone, announced_terrorzone_name = get_new_terrorzone()
-    except ConnectionError as e:
-        logger.error('Failed to get terrorzone! Response from api: ' + str(e))
-    else:
-        amount = announced_terrorzone['terrorZone']['highestProbabilityZone']['amount']
-        update_ttl(amount)
-        if amount == 0:  # no terrorzone known yet. Will trust in the update method to be called again shortly
-            announced_terrorzone_name = "NotKnownYet"
-            logger.warning('could not announce a terrorzone. None is known yet')
-            logger.debug('EXIT Function 0a')
-            return '0a'
-
-        webhook = DiscordWebhook(
-            url='https://discord.com/api/webhooks/' + str(WEBHOOK_ID) + '/' + str(WEBHOOK_TOKEN))
-
-        # create embed object for webhook
-        # you can set the color as a decimal (color=242424) or hex (color='03b2f8') number
-        embed = DiscordEmbed(title=announced_terrorzone_name, description=create_message(), color=color)
-
-        # set footer
-        provided_by = 'terrorzone provided by ' + announced_terrorzone['providedBy']
-        if update:
-            embed.set_footer(text='updated ' + provided_by)
-        else:
-            embed.set_footer(text='new ' + provided_by)
-
-        # set timestamp (default is now)
-        embed.set_timestamp()
-
-        # add embed object to webhook
-        webhook.add_embed(embed)
-
-        response = webhook.execute()
-        if not response.ok:
-            health(False)
-            logger.error('Failed to execute webhook! Response from api: ' + str(response))
-            raise ConnectionError(f"{response.status_code} - {response.json()}")
-        else:
-            logger.info('Announce successful! New Terrorzone: ' + announced_terrorzone_name)
-            health(True)
-    logger.debug('EXIT Function 1')
-    return 1
-
-
-# if the most reported terrorzone changes, update current terrorzone
-def update_terrorzone():
-    global logger
-    global announced_terrorzone
+    :param env: loaded environment variables
+    :param logger:
+    :param provided_by: link to the tracker website
+    :param announce_terrorzone_name:
+    :param ttl_multiplier:
+    :param color: define the bordercolor of the announced discord message
+    :return:
+    """
     global announced_terrorzone_name
 
-    logger.debug('ENTER Function')
-    # initial start of the script (assume the script was running before and discord contains that information)
-    # just set announced_* without announcing when force_initial_announcement=False
-    if announced_terrorzone == 'undefined':
-        try:
-            announced_terrorzone, announced_terrorzone_name = get_new_terrorzone()
-        except ConnectionError as e:
-            logger.error('Failed to get terrorzone! Response from api: ' + str(e))
-        else:
-            logger.debug('terrorzone updated from None to ' + announced_terrorzone_name)
-            announced_reported_amount = announced_terrorzone['terrorZone']['highestProbabilityZone']['amount']
-            update_ttl(announced_reported_amount)
-            if announced_reported_amount == 0:  # no terrorzone known yet.
-                announced_terrorzone_name = "NotKnownYet"
-                logger.info('could not announce a terrorzone. None is known yet')
-            logger.debug('initiate EXIT Function 2')
+    logger.debug('ENTER')
 
-    # when at full hour no terrorzone is known
-    elif announced_terrorzone_name == "NotKnownYet":
-        logger.warning('call announce_terrorzone(new). Scheduled run too early')
-        try:
-            announce_terrorzone()
-        except ConnectionError as e:
-            logger.error('Failed to get terrorzone! Response from api: ' + str(e))
-        logger.debug('initiate EXIT Function 3')
-    else:
-        try:
-            new_terrorzone, new_terrorzone_name = get_new_terrorzone()
-        except ConnectionError as e:
-            logger.error('Failed to get terrorzone! Response from api: ' + str(e))
-        else:
-            new_reported_amount = new_terrorzone['terrorZone']['highestProbabilityZone']['amount']
-            announced_reported_amount = announced_terrorzone['terrorZone']['highestProbabilityZone']['amount']
-
-            # there was a change, previous announced terrorzone was wrongly reported
-            if new_reported_amount > announced_reported_amount and new_terrorzone_name != announced_terrorzone_name:
-                logger.warning('call announce_terrorzone(update). Previous reports were wrong')
-                announced_terrorzone = new_terrorzone
-                announced_terrorzone_name = new_terrorzone_name
-                announce_terrorzone(True, '00FF00')
-                logger.debug('initiate EXIT Function 4')
-
-            # if reported_amount is higher than before, we can increase the scheduled interval
-            elif new_reported_amount > announced_reported_amount:
-                logger.debug('call update_ttl')
-                update_ttl(new_reported_amount)
-                logger.debug('initiate EXIT Function 5')
-            else:
-                logger.debug('no change, nothing to do')
-                logger.debug('initiate EXIT Function 6')
-    logger.debug('EXIT Function')
-
-
-#  access the tracker with a GET request to have the new terrorzone as JSON
-def get_new_terrorzone():
-    global logger
-    global ENDPOINT_TZ
-    global ENDPOINT_TOKEN
-    global CONTACT
-    global PLATFORM
-    global PUBLIC_REPO
-
-    logger.debug('ENTER Function')
-
-    params = {'token': ENDPOINT_TOKEN}
-    headers = {'D2R-Contact': CONTACT, 'D2R-Platform': PLATFORM, 'D2R-Repo': PUBLIC_REPO}
-    response = requests.get(ENDPOINT_TZ, params=params, headers=headers)
+    # create embed object for webhook
+    # you can set the color as a decimal (color=242424) or hex (color='03b2f8') number
+    embed = DiscordEmbed(title=announce_terrorzone_name, description=create_message(announce_terrorzone_name, logger), color=color)
+    # set footer
+    embed.set_footer(text=f'terrorzone provided by {provided_by}')
+    # set timestamp (default is now)
+    embed.set_timestamp()
+    # add embed object to webhook
+    webhook = DiscordWebhook(url=f'https://discord.com/api/webhooks/{env["WEBHOOK_ID"]}/{env["WEBHOOK_TOKEN"]}')
+    webhook.add_embed(embed)
+    response = webhook.execute()
     if not response.ok:
-        health(False)
-        update_ttl(10)  # set new update interval to 10 minutes
-        raise ConnectionError(f"{response.status_code} - {response.json()['message']}")
+        health(logger, False)
+        logger.error(f'Failed to execute webhook! Response from api: {response}')
+        raise ConnectionError(f'{response.status_code} - {response.json()}')
     else:
-        health(True)
-
-    new_terrorzone = response.json()
-    new_terrorzone_name = new_terrorzone['terrorZone']['highestProbabilityZone']['zone']
-    logger.info('new terrorzone=' + new_terrorzone_name)
-    logger.debug('new reported_amount=' + str(
-        new_terrorzone['terrorZone']['highestProbabilityZone']['amount']))
-    logger.debug('EXIT Function')
-    return new_terrorzone, new_terrorzone_name
+        update_ttl(env, logger, ttl_multiplier)
+        announced_terrorzone_name = announce_terrorzone_name
+        logger.info(f'Announce successful! New Terrorzone: {announced_terrorzone_name}')
+        health(logger, True)
+    logger.debug('EXIT')
 
 
-# try to avoid flooding the tracker with requests. Depending on the reported amount, wait longer until next request
-def update_ttl(reported_amount=0):
-    global logger
+def update_terrorzone(env: dict, logger: logging.Logger, full_hour: bool=False):
+    """
+    Checks if the announced terrorzone needs to be changed.
+
+    :param env: loaded environment variables
+    :param logger:
+    :param full_hour:
+    :return:
+    """
+
+    global announced_terrorzone_name
+
+    logger.debug('ENTER')
+    try:
+        terrorzone_data: json = get_terrorzone_data(env, logger)
+        provided_by: str = terrorzone_data.get('providedBy')
+        current_terrorzone_name: str = terrorzone_data.get('currentTerrorZone').get('zone')
+        next_terrorzone_name: str = terrorzone_data.get('nextTerrorZone').get('zone')
+    except ConnectionError as e:
+        logger.error(f'Failed to get terrorzone! Response from api: {e}')
+    else:
+        # website often fails to update the json response at the correct time.
+        # as a workaround there are these conditions which try to circumvent this
+        if not announced_terrorzone_name:
+            logger.info('initial script, no announcement')
+            announced_terrorzone_name = current_terrorzone_name
+            update_ttl(env, logger, 10)
+        elif announced_terrorzone_name != current_terrorzone_name and full_hour:
+            logger.info('full hour, new terrorzone available')
+            announce_terrorzone(env, logger, provided_by, current_terrorzone_name, 11)
+        elif announced_terrorzone_name == current_terrorzone_name and full_hour:
+            logger.info('full hour, terrorzone old, announce next instead')
+            announce_terrorzone(env, logger, provided_by, next_terrorzone_name, 4)
+        elif announced_terrorzone_name == current_terrorzone_name:
+            logger.info('update check, terrorzone not changed, timer increased')
+            update_ttl(env, logger, 10)
+            pass  # nothing changed
+        elif announced_terrorzone_name == next_terrorzone_name:
+            logger.info('update check, terrorzone not changed')
+            pass  # nothing changed
+        else:
+            logger.info('update check, terrorzone information outdated, new announcement with different color')
+            announce_terrorzone(env, logger, provided_by, current_terrorzone_name, 4, color='00FF00')
+
+    logger.debug('EXIT')
+
+
+def get_terrorzone_data(env: dict, logger: logging.Logger) -> json:
+    """
+    webrequest to retrieve  terrorzone data
+    :param env: loaded environment variables
+    :param logger:
+    :return: terrorzone data as json
+    """
+
+    logger.debug('ENTER')
+    params = {'token': env['ENDPOINT_TOKEN']}
+    headers = {'D2R-Contact': env['CONTACT'], 'D2R-Platform': env['PLATFORM'], 'D2R-Repo': env['PUBLIC_REPO']}
+    response = requests.get(env['ENDPOINT_TZ'], params=params, headers=headers)
+    if not response.ok:
+        health(logger, False)
+        update_ttl(env, logger, 10)  # set new update interval to 10 minutes
+        raise ConnectionError(f'{response.status_code} - {response.json()["message"]}')
+    else:
+        health(logger, True)
+    terrorzone_data = response.json()
+    logger.debug(f'json={json.dumps(terrorzone_data, indent=4)}')
+    logger.debug('EXIT')
+    return terrorzone_data
+
+
+def update_ttl(env: dict, logger: logging.Logger, multiplier: int=0):
+    """
+    try to avoid flooding the tracker with requests. Depending on the reported amount, wait longer until next request
+
+    :param env: loaded environment variables
+    :param logger:
+    :param multiplier:
+    :return:
+    """
     global update_job
 
-    logger.debug('ENTER Function')
-    if reported_amount > 10:
+    logger.debug('ENTER')
+    if multiplier > 10:
         ttl = 3600  # if there are so many votes, it's probably the correct one, not necessary to check anymore
-    elif reported_amount > 3:
-        ttl = reported_amount * 60
-    elif reported_amount > 0:
+    elif multiplier > 3:
+        ttl = multiplier * 60
+    elif multiplier > 0:
         ttl = 60
     else:
         ttl = 30
-    logger.info('new TTL=' + str(ttl))
+    logger.info(f'new TTL={ttl}')
     # recreate the tasks with the new TTL
     schedule.cancel_job(update_job)
-    update_job = schedule.every(ttl).seconds.do(update_terrorzone)
-    logger.debug('EXIT Function')
+    update_job = schedule.every(ttl).seconds.do(update_terrorzone, env=env, logger=logger)
+    logger.debug('EXIT')
 
 
-def health(state=False):
-    global logger
+def health(logger: logging.Logger, state=False):
+    """
+    Writes health state to file for container orchestrator to use
+
+    :param logger:
+    :param state:
+    :return:
+    """
+
     global health_state
 
-    logger.debug('ENTER Function')
+    logger.debug('ENTER')
     if state and health_state == 0:
-        logger.debug('EXIT Function 1')
+        logger.debug('EXIT 1')
         return    
     elif not state and health_state == 1:
-        logger.debug('EXIT Function 2')
+        logger.debug('EXIT 2')
         return
     elif state and health_state == 1:
         health_state = 0
     elif not state and health_state == 0:
         health_state = 1
  
-    with open('/tmp/health', "w") as f:
+    with open('/tmp/health', 'w') as f:
         f.write(str(health_state))
-    logger.info(f"health set to: {str(health_state)}")
-    logger.debug('EXIT Function')
+    logger.info(f'health set to: {str(health_state)}')
+    logger.debug('EXIT')
 
 
 def main():
-    global logger
     global update_job
 
-    logger = setup_custom_logger()
+    env_dict: dict = {'WEBHOOK_ID': '',
+                 'WEBHOOK_TOKEN': '',
+                 'ENDPOINT_TZ': '',
+                 'ENDPOINT_TOKEN': '',
+                 'CONTACT': '',
+                 'PLATFORM': '',
+                 'PUBLIC_REPO': ''}
+    custom_logger = setup_custom_logger()
 
-    logger.info('')
-    logger.info('=============================================')
-    logger.info('MAIN SCRIPT START')
-    logger.info('=============================================')
-    logger.info('')
+    custom_logger.info('')
+    custom_logger.info('=============================================')
+    custom_logger.info('MAIN SCRIPT START')
+    custom_logger.info('=============================================')
+    custom_logger.info('')
 
-    load_env()
+    load_env(env_dict, custom_logger)
 
-    with open('/tmp/health', "w") as f:
+    with open('/tmp/health', 'w') as f:
         f.write(str(0))
 
-    # execute every full hour (give 31 seconds time for people to report the new terrorzone)
-    schedule.every().hour.at("00:31").do(announce_terrorzone)
+    # execute every full hour
+    schedule.every().hour.at('00:00').do(update_terrorzone, env=env_dict, logger=custom_logger, full_hour=True)
 
     # check if there is a new 'best' zone
-    update_job = schedule.every().seconds.do(update_terrorzone)
+    update_job = schedule.every().seconds.do(update_terrorzone, env=env_dict, logger=custom_logger)
 
-    logger.info(schedule.get_jobs())
+    custom_logger.debug(schedule.get_jobs())
 
     # run indefinitely and wait for new tasks to run
     killer = GracefulKiller()
     while not killer.kill_now:
         schedule.run_pending()
         time.sleep(5)
-    print()
-    logger.info("End of container. Stopped gracefully :)")  # timeout needs to be 30+sec
+    custom_logger.info('Stopped gracefully :)')  # timeout needs to be 30+sec
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
