@@ -66,7 +66,7 @@ def setup_custom_logger(name='terrorzone-discord-webhook') -> logging.Logger:
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
-    loglevel = os.getenv('LOG_LEVEL', 'DEBUG')
+    loglevel = os.getenv('LOGLEVEL', 'DEBUG')
     if loglevel.upper() == 'INFO':
         logger.setLevel(logging.INFO)
     elif loglevel.upper() == 'WARNING':
