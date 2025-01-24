@@ -247,7 +247,7 @@ def update_terrorzone(env: dict, logger: logging.Logger, full_hour: bool=False):
             pass  # nothing changed
         else:
             logger.info('update check, terrorzone information outdated, new announcement with different color')
-            announce_terrorzone(env, logger, provided_by, current_terrorzone_name, 4, color='00FF00')
+            announce_terrorzone(env, logger, f'updated {provided_by}', current_terrorzone_name, 4, color='00FF00')
 
     logger.debug('EXIT')
 
