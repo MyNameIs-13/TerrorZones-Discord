@@ -98,7 +98,7 @@
         "sparkly chests": ""
         },
         {
-        "display name": "Sewers",
+        "display name": "Lut Gholein Sewers",
         "act":"2",
         "immunities": "f c p m",
         "monster packs": "18-24",
@@ -242,7 +242,7 @@
         "sparkly chests": ""
         },
         {
-        "display name": "Bloody Foothills, Frigid Highlands and Abaddon",
+        "display name": "Bloody Foothills, Frigid Highlands, and Abaddon",
         "act":"5",
         "immunities": "f c l p ph m",
         "monster packs": "19-25",
