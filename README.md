@@ -36,7 +36,7 @@ docker compose up
 ## Misc
 
 - The following environment variables can be passed to the docker container:
-    - LOG_LEVEL - optional - {INFO, WARNING, ERROR, CRITICAL} (everything else defaults to DEBUG)
+    - LOGLEVEL - optional - {INFO, WARNING, ERROR, CRITICAL} (everything else defaults to DEBUG)
     - WEBHOOK_ID - required - id from your discord webhook
     - WEBHOOK_TOKEN - required - token from your discord webhook
     - ENDPOINT_TOKEN - required - personalized token from https://d2runewizard.com/profile/T41jagcO0UcTLKJiC5UOmDCdGtS2
