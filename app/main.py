@@ -233,17 +233,17 @@ def update_terrorzone(env: dict, logger: logging.Logger, full_hour: bool=False):
             announced_terrorzone_name = current_terrorzone_name
             update_ttl(env, logger, 10)
         elif announced_terrorzone_name != current_terrorzone_name and full_hour:
-            logger.info('full hour, new terrorzone available')
-            announce_terrorzone(env, logger, provided_by, current_terrorzone_name, 11)
+            logger.info('full hour, new terrorzone available, long timer')
+            announce_terrorzone(env, logger, provided_by, current_terrorzone_name, 10)
         elif announced_terrorzone_name == current_terrorzone_name and full_hour:
-            logger.info('full hour, terrorzone old, announce next instead')
+            logger.info('full hour, terrorzone old, announce next instead, short timeer')
             announce_terrorzone(env, logger, provided_by, next_terrorzone_name, 4)
         elif announced_terrorzone_name == current_terrorzone_name:
-            logger.info('update check, terrorzone not changed, timer increased')
+            logger.info('update check, terrorzone not changed, long timer')
             update_ttl(env, logger, 10)
             pass  # nothing changed
         elif announced_terrorzone_name == next_terrorzone_name:
-            logger.info('update check, terrorzone not changed')
+            logger.info('update check, terrorzone not changed, short timer')
             pass  # nothing changed
         else:
             logger.info('update check, terrorzone information outdated, new announcement with different color')
