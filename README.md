@@ -70,3 +70,7 @@ docker compose up --build
     /path/to/d2r-terrorzones.tar (alpine 3.21.2)
     Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
     ```
+    
+## Links
+how to use d2runewizard api: https://d2runewizard.com/integration
+ideas used from: https://github.com/fredericojordan/d2terror
