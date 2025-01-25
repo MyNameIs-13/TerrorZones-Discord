@@ -147,10 +147,7 @@ def create_embed(logger: logging.Logger, announce_data_dict: dict) -> DiscordEmb
     zone_found = False
     embed = DiscordEmbed()
     embed.set_color(color=announce_data_dict['COLOR'])
-    pad = 0
-    if len(announce_data_dict['TERRORZONE_NAME']) < len(announce_data_dict['PROVIDED_BY'])+2:
-        pad = (len(announce_data_dict['PROVIDED_BY']) + 2 - len(announce_data_dict['TERRORZONE_NAME'])) // 6
-    embed.set_title(title=f"{'⠀' * pad}{announce_data_dict['TERRORZONE_NAME']}")
+    embed.set_title(title=announce_data_dict['TERRORZONE_NAME'])
     embed.set_description(f"**{'⠀'*((len(announce_data_dict['PROVIDED_BY'])+2)//3)}**")
     embed.set_footer(
         text=announce_data_dict['PROVIDED_BY'],
