@@ -296,7 +296,12 @@ class D2TerrorZone:
             announce_data_dict = {'PROVIDED_BY': provided_by, 'TERRORZONE_NAME': current_terrorzone_name, 'COLOR': '8B0000'}
             # website often fails to update the json response at the correct time.
             # as a workaround there are these conditions which try to circumvent this
-            if full_hour and self.announced_tz_name != current_terrorzone_name:
+            if not self.announced_tz_name:  # on initial script run
+                self.logger.info('inital script start, no announcment')
+                self.announced_tz_name = current_terrorzone_name
+                self.ttl_multiplier = 10
+                self.update_job_frequency()
+            elif full_hour and self.announced_tz_name != current_terrorzone_name:
                 self.logger.info('full hour, new terrorzone available, long timer')
                 self.ttl_multiplier = 10
                 self.announce_terrorzone(announce_data_dict)
@@ -315,13 +320,13 @@ class D2TerrorZone:
                 self.update_job_frequency()
             else:
                 self.logger.info('update check, terrorzone information outdated, new announcement with different color')
-                self.ttl_multiplier = 4
                 # when script initially starts it does not exist, in all other cases it shoudl exist
                 if self.announced_tz_webhook:
                     self.announced_tz_webhook.delete()
                     announce_data_dict['PROVIDED_BY'] = f'updated {provided_by}'
                     announce_data_dict['COLOR'] = '00FF00'
-                    self.announce_terrorzone(announce_data_dict)
+                self.ttl_multiplier = 4
+                self.announce_terrorzone(announce_data_dict)
 
         finally:
             self.logger.debug('EXIT')
