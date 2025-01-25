@@ -143,31 +143,30 @@ def create_embed(announce_data_dict: dict, logger: logging.Logger) -> DiscordEmb
 
     logger.debug('ENTER')
     zone_found = False
-    # create embed object for webhook
-    # you can set the color as a decimal (color=242424) or hex (color='03b2f8') number
     embed = DiscordEmbed()
-    embed.set_title(title=announce_data_dict['TERRORZONE_NAME'])
     embed.set_color(color=announce_data_dict['COLOR'])
+    pad = 0
+    if len(announce_data_dict['TERRORZONE_NAME']) < len(announce_data_dict['PROVIDED_BY'])+2:
+        pad = (len(announce_data_dict['PROVIDED_BY']) + 2 - len(announce_data_dict['TERRORZONE_NAME'])) // 6
+    embed.set_title(title=f"{'⠀' * pad}{announce_data_dict['TERRORZONE_NAME']}")
+    embed.set_description(f"**{'⠀'*((len(announce_data_dict['PROVIDED_BY'])+2)//3)}**")
     embed.set_footer(
         text=announce_data_dict['PROVIDED_BY'],
         icon_url="https://d2runewizard.com/icons/favicon-32x32.png")
-    embed.set_description('-'*(len(embed.footer['text'])+2))
-
     zone_info = './zone-info/zone-info.json'
     if not os.path.exists(zone_info):
         zone_info = 'zone-info.json'
-
     try:
         with open(zone_info) as data_file:
             zone_info = json.load(data_file)
             for zone in zone_info['terror zones']:
                 if zone['display name'] == announce_data_dict['TERRORZONE_NAME']:
                     zone_found = True
-                    embed.add_embed_field('Act:', zone['act'], inline=True)
-                    embed.add_embed_field('Immunities:', get_immunity_emojis(zone['immunities']), inline=True)
-                    embed.add_embed_field('Monster packs:', zone['monster packs'], inline=True)
-                    embed.add_embed_field('Super uniques:', zone['super uniques'] if zone['super uniques'] else 'None', inline=True)
-                    embed.add_embed_field('Sparkly chests:', zone['sparkly chests'], inline=True)
+                    embed.add_embed_field('Act:', zone['act'])
+                    embed.add_embed_field('Immunities:', get_immunity_emojis(zone['immunities']))
+                    embed.add_embed_field('Monster packs:', zone['monster packs'])
+                    embed.add_embed_field('Super uniques:', zone['super uniques'] if zone['super uniques'] else 'None')
+                    embed.add_embed_field('Sparkly chests:', zone['sparkly chests'])
             if not zone_found:
                 raise ValueError('No zone found that matches the current Terrorzone')
     except ValueError:
@@ -237,8 +236,9 @@ def update_terrorzone(env: dict, logger: logging.Logger, full_hour: bool=False):
         # as a workaround there are these conditions which try to circumvent this
         if not ANNOUNCED_TERRORZONE_NAME:
             logger.info('initial script, no announcement')
-            ANNOUNCED_TERRORZONE_NAME = current_terrorzone_name
-            update_ttl(env, logger, 10)
+            # ANNOUNCED_TERRORZONE_NAME = current_terrorzone_name
+            # update_ttl(env, logger, 10)
+            announce_terrorzone(env, logger, announce_data_dict, 4)
         elif ANNOUNCED_TERRORZONE_NAME != current_terrorzone_name and full_hour:
             logger.info('full hour, new terrorzone available, long timer')
             announce_terrorzone(env, logger, announce_data_dict, 10)
