@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 # TODO: Maybe async?
+# TODO: better looking message
+# TODO: dclone tracker
 
 import os
 import sys
@@ -186,7 +188,7 @@ def announce_terrorzone(env: dict, logger: logging.Logger, provided_by: str, ann
     # you can set the color as a decimal (color=242424) or hex (color='03b2f8') number
     embed = DiscordEmbed(title=announce_terrorzone_name, description=create_message(announce_terrorzone_name, logger), color=color)
     # set footer
-    embed.set_footer(text=f'terrorzone provided by {provided_by}')
+    embed.set_footer(text=provided_by)
     # set timestamp (default is now)
     embed.set_timestamp()
     # add embed object to webhook
@@ -220,7 +222,7 @@ def update_terrorzone(env: dict, logger: logging.Logger, full_hour: bool=False):
     logger.debug('ENTER')
     try:
         terrorzone_data: json = get_terrorzone_data(env, logger)
-        provided_by: str = terrorzone_data.get('providedBy')
+        provided_by: str = f'terrorzone provided by {terrorzone_data.get('providedBy')}'
         current_terrorzone_name: str = terrorzone_data.get('currentTerrorZone').get('zone')
         next_terrorzone_name: str = terrorzone_data.get('nextTerrorZone').get('zone')
     except ConnectionError as e:
