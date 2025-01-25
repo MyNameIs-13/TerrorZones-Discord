@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 
 # TODO: Maybe async?
-# TODO: better looking message
-# TODO: remove old messages when an update is issued
 # TODO: class
 # TODO: dclone tracker
-# TODO: change provider to https://www.d2emu.com/
+# TODO: change provider to https://www.d2emu.com/?
 
 import os
 import sys
 import re
 import time
 import json
+from time import sleep
+
 import requests
 import signal
 import logging
@@ -26,6 +26,7 @@ from dotenv import load_dotenv
 # global variables
 HEALTH_STATE: int = 0  # reduces reads from file
 ANNOUNCED_TERRORZONE_NAME: str = ''
+ANNOUNCED_TERRORZONE_WEBHOOK: DiscordWebhook
 UPDATE_JOB: schedule.Job
 IMMUNITY_EMOJIS = {
     "c": "\U00002744️",
@@ -189,6 +190,7 @@ def announce_terrorzone(env: dict, logger: logging.Logger, announce_data_dict: d
     :return:
     """
     global ANNOUNCED_TERRORZONE_NAME
+    global ANNOUNCED_TERRORZONE_WEBHOOK
 
     logger.debug('ENTER')
 
@@ -201,6 +203,7 @@ def announce_terrorzone(env: dict, logger: logging.Logger, announce_data_dict: d
         logger.error(f'Failed to execute webhook! Response from api: {response}')
         raise ConnectionError(f'{response.status_code} - {response.json()}')
     else:
+        ANNOUNCED_TERRORZONE_WEBHOOK = webhook
         update_ttl(env, logger, ttl_multiplier)
         ANNOUNCED_TERRORZONE_NAME = announce_data_dict['TERRORZONE_NAME']
         logger.info(f'Announce successful! New Terrorzone: {ANNOUNCED_TERRORZONE_NAME}')
@@ -234,9 +237,8 @@ def update_terrorzone(env: dict, logger: logging.Logger, full_hour: bool=False):
         # as a workaround there are these conditions which try to circumvent this
         if not ANNOUNCED_TERRORZONE_NAME:
             logger.info('initial script, no announcement')
-            # ANNOUNCED_TERRORZONE_NAME = current_terrorzone_name
-            # update_ttl(env, logger, 10)
-            announce_terrorzone(env, logger, announce_data_dict, 4)
+            ANNOUNCED_TERRORZONE_NAME = current_terrorzone_name
+            update_ttl(env, logger, 10)
         elif ANNOUNCED_TERRORZONE_NAME != current_terrorzone_name and full_hour:
             logger.info('full hour, new terrorzone available, long timer')
             announce_terrorzone(env, logger, announce_data_dict, 10)
@@ -253,6 +255,7 @@ def update_terrorzone(env: dict, logger: logging.Logger, full_hour: bool=False):
             pass  # nothing changed
         else:
             logger.info('update check, terrorzone information outdated, new announcement with different color')
+            ANNOUNCED_TERRORZONE_WEBHOOK.delete()
             announce_data_dict['PROVIDED_BY'] = f'updated {provided_by}'
             announce_data_dict['COLOR'] = '00FF00'
             announce_terrorzone(env, logger, announce_data_dict, 4)
