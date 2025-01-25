@@ -21,7 +21,7 @@ Based on https://d2runewizard.com/integration
         ```
 - (optional) create folder(s) for `logs` and `zone-info.json` and add them to the `.env` file as `LOGPATH` & `ZONEINFOPATH` respectively
     - the used folder(s) require access right for anybody when the `nobody` user is used to run the container 
-        ```
+        ```shell
         chmod -R 666 /your/path
         ```
 - (optional) define UID (UserId) and GID (GroupId) for the user which should be used inside the container (default is nobody)
@@ -29,14 +29,20 @@ Based on https://d2runewizard.com/integration
 ### Build & run docker container
 
 navigate to folder (`cd /your/path`), then:
-```
+```shell
 docker compose up
 ```
+
+to update the image use:
+````shell
+docker compose up --build
+````
+
 
 ## Misc
 
 - The following environment variables can be passed to the docker container:
-    - LOG_LEVEL - optional - {INFO, WARNING, ERROR, CRITICAL} (everything else defaults to DEBUG)
+    - LOGLEVEL - optional - {INFO, WARNING, ERROR, CRITICAL} (everything else defaults to DEBUG)
     - WEBHOOK_ID - required - id from your discord webhook
     - WEBHOOK_TOKEN - required - token from your discord webhook
     - ENDPOINT_TOKEN - required - personalized token from https://d2runewizard.com/profile/T41jagcO0UcTLKJiC5UOmDCdGtS2
@@ -46,3 +52,21 @@ docker compose up
 - when an accessible `/app/logs` mount is created, log files will be written into this folder. Otherwise they are written to stdout
 - when an accessible `/app/zone-info` mount is created, zone-info.json in this directory is preferred instead of the build in one.
 - some systems don't support cpus limit, comment-out the limit in `docker-compose.yml`
+- Trivy
+  - using on machine where image is located
+    ```shell
+    trivy image d2r-terrorzones:<TAG>
+    ```
+  - when using a different machine
+    ```shell
+    # on machine with image
+    docker save -o /save/path/d2r-terrorzones.tar d2r-terrorzones:<TAG>
+    # -> transfer image cp, scp, rsync, smb, ...
+    # on machine with trivy
+    trivy image --input /path/to/d2r-terrorzones.tar
+    ```
+  - current output
+    ```text
+    /path/to/d2r-terrorzones.tar (alpine 3.21.2)
+    Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
+    ```

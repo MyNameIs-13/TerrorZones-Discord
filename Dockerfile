@@ -1,6 +1,6 @@
 # TODO: apply chmod outside of Dockerfile
 # TODO: upload image to a registry
-FROM docker.io/python:3.11-alpine3.17
+FROM docker.io/python:3.13.1-alpine3.21
 
 WORKDIR /app
 
