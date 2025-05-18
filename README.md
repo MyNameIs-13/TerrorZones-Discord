@@ -94,5 +94,6 @@ docker compose up --build
     ```
 
 ## Links
+
 - how to use d2runewizard api: <https://d2runewizard.com/integration>
 - ideas used from: <https://github.com/fredericojordan/d2terror>
