@@ -5,22 +5,18 @@
 # TODO: dclone tracker
 # TODO: change provider to https://www.d2emu.com/?
 
-import os
-import sys
-import re
-import time
 import json
-from time import sleep
-
-import requests
-import signal
 import logging
-
+import os
+import re
+import signal
+import sys
+import time
 from logging.handlers import RotatingFileHandler
 
+import requests
 import schedule
-
-from discord_webhook import DiscordWebhook, DiscordEmbed
+from discord_webhook import DiscordEmbed, DiscordWebhook
 from dotenv import load_dotenv
 
 # global variables
@@ -64,37 +60,32 @@ def get_immunity_emojis(immunities: list) -> str:
     )
 
 
-def setup_custom_logger(name='terrorzone-discord-webhook') -> logging.Logger:
+def setup_custom_logger(name: str = __name__) -> logging.Logger:
     """
-
     :param name: name of the logger which will be created
     :return: logger as logger
     """
+    # for debugging purposes when running outside of container
+    if os.path.exists('../.env'):
+        load_dotenv('../.env')
+    log_level = os.getenv('LOG_LEVEL', 'DEBUG').upper()
 
-    formatter = logging.Formatter(fmt='%(asctime)s %(levelname)-8s %(funcName)-20s %(message)s',
-                                  datefmt='%Y-%m-%d %H:%M:%S')
-    logpath = './logs/terrorzone-discord-webhook.log'
-    print(f'logpath={logpath}')
     logger = logging.getLogger(name)
+    logger.setLevel(getattr(logging, log_level.upper(), logging.DEBUG))
     logger.addFilter(SensitiveDataFilter())
-    if not os.access('./logs', os.W_OK):
-        handler = logging.StreamHandler(stream=sys.stdout)
+
+    log_filepath = f'./logs/{name}.log'
+    log_path = os.path.dirname(os.path.abspath(log_filepath))
+    print(f'logpath={log_path}')
+    if logger.getEffectiveLevel() == logging.DEBUG and os.access(log_path, os.W_OK):
+        handler = RotatingFileHandler(log_filepath, mode='a', encoding='utf-8', maxBytes=5 * 1024 * 1024, backupCount=3)
     else:
-        handler = RotatingFileHandler(logpath, mode='a', maxBytes=2000000, backupCount=3)
+        handler = logging.StreamHandler(stream=sys.stdout)
+
+    dt_fmt = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(fmt='[{asctime}] [{levelname:<8}] {funcName}: {message}', datefmt=dt_fmt, style='{')
     handler.setFormatter(formatter)
     logger.addHandler(handler)
-
-    loglevel = os.getenv('LOGLEVEL', 'DEBUG')
-    if loglevel.upper() == 'INFO':
-        logger.setLevel(logging.INFO)
-    elif loglevel.upper() == 'WARNING':
-        logger.setLevel(logging.WARNING)
-    elif loglevel.upper() == 'ERROR':
-        logger.setLevel(logging.ERROR)
-    elif loglevel.upper() == 'CRITICAL':
-        logger.setLevel(logging.CRITICAL)
-    else:
-        logger.setLevel(logging.DEBUG)
 
     return logger
 
@@ -113,6 +104,8 @@ def load_env(logger: logging.Logger) -> dict:
     # for debugging purposes when running outside of container
     if os.path.exists('../.secrets'):
         load_dotenv('../.secrets')
+    if os.path.exists('../.env'):
+        load_dotenv('../.env')
 
     env['WEBHOOK_ID'] = os.getenv('WEBHOOK_ID')
     logger.debug(f'WEBHOOK_ID={env["WEBHOOK_ID"]}')

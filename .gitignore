@@ -6,5 +6,6 @@
 **/.ssh
 **/venv
 **/env
-**/.env-example
 **/.secrets
+.env
+.secrets

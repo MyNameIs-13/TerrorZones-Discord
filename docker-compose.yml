@@ -2,22 +2,37 @@ services:
   d2r-terrorzones:
     build: .
     image: d2r-terrorzones:${TAG}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 100M
+          pids: 3 # async needs threads
+        reservations:
+          cpus: "0.20"
+          memory: 25M
+      replicas: 1
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "5"
     labels:
-      - "com.centurylinklabs.watchtower.enable=false"  #  watchtower should not try to monitor and update
+      - "com.centurylinklabs.watchtower.enable=false" #  watchtower should not try to monitor and update
     environment:
-      - PUBLIC_REPO=https://github.com/MyNameIs-13/TerrorZones-Discord
-      - LOGLEVEL=INFO
+      - PUBLIC_REPO=${PUBLIC_REPO}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
     env_file:
       - .secrets
     restart: always
+    healthcheck:
+      test: ["CMD", "sh", "-c", "/app/check-running.sh"]
+      interval: 5m
+      timeout: 5s
+      retries: 3
     cap_drop:
       - ALL
     volumes:
-      - "${LOGPATH:-/}:/app/logs"
-      - "${ZONEINFOPATH:-/}:/app/zone-info"
+      - "${LOG_PATH:-/}:/app/logs"
+      - "${ZONEINFO_PATH:-/}:/app/zone-info"
     user: ${UID:-65534}:${GID:-65534}
-    pids_limit: 3  # program & for some reason healthcheck needs 2
-    scale: 1
-    cpus: 0.2
-    mem_limit: 100M
-    mem_reservation: 25M
